@@ -16,7 +16,7 @@
         *,
         *::before,
         *::after {
-            margin: 0;
+            margin:0;
             padding: 0;
             box-sizing: border-box;
         }
@@ -140,11 +140,13 @@
             color: var(--teal);
             text-decoration: none;
             font-weight: 700;
+            margin-left: 20px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
+            margin-right: 20px;
         }
 
         .nav-links li {
@@ -312,6 +314,8 @@
 
         .btn {
             display: inline-block;
+            justify-content: center;
+            align-items: center;
             padding: 12px 30px;
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
@@ -325,6 +329,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            text-align: center;
         }
 
         .btn::before {
@@ -540,6 +545,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 5px;
             margin-top: 20px;
         }
 
@@ -807,6 +813,8 @@
             }
 
             .btn {
+                justify-content: center;
+                align-items: center;
                 padding: 10px 25px;
                 font-size: 0.9rem;
             }
@@ -865,10 +873,10 @@
 
         <div class="container">
             <div class="hero-content">
-                <h3 class="hero-subtitle">ISI Bangalore Presents</h3>
+                <h3 class="hero-subtitle">INDIAN STATISTICAL INSTITUTE BANGALORE, presents </h3>
                 <h1 class="hero-title">CHAOS</h1>
                 <div class="hero-year">2025</div>
-                <p class="hero-description">The students of ISI Bangalore present to you the most anticipated inter-college cultural fest, CHAOS 2k25. Free up your schedules and mark the dates -- 29th March and 30th March it is. .</p>
+                <p class="hero-description">The students of ISI Bangalore present to you the most anticipated inter-college cultural fest, CHAOS 2k25. Free up your schedules and mark the dates -- 29th March and 30th March it is.</p>
                 <div class="cta-buttons">
                     <a href="#events" class="btn btn-primary">Explore Events</a>
                     <a href="#registration" class="btn btn-outline">Register Now</a>
@@ -890,8 +898,7 @@
                     <p>CHAOS 2025 is the inter-collegiate cultural festival organized by the Indian Statistical Institute, Bangalore Centre. It brings together the perfect blend of culture and intellect to cater to every set of diverse palette. </p>
                     <p>We aim to not let you rest at all and believe me you will enjoy that, as it's time to get chaotic, as CHAOS is finally back for 2k25 after a 5-year long hiatus.</p>
                     <p>From challenging quizzes to strategic chess tournaments and electrifying face-off between bands, CHAOS
-                        2k25 encompasses all you could ask for and more. A platform for students to showcase their talents and forge meaningful connections.
-                    </p>
+                        2k25 encompasses all you could ask for and more. A platform for students to showcase their talents and forge meaningful connections.<p>
                     <a href="#events" class="btn btn-outline">View Events</a>
                 </div>
 
@@ -919,13 +926,13 @@
                     <div class="event-content">
                         <h3 class="event-title">Fractopedia</h3>
                         <p class="event-subtitle">Quiz Tournament</p>
-                        <p class="event-description">Test your knowledge across diverse domains in our quiz
+                        <p class="event-description">Test your knowledge across diverse domains in our flagship quiz
                             competition. From science and technology to arts and culture, Fractopedia challenges your
                             intellect at every turn.</p>
                         <div class="event-footer">
                             <!--  FIXED:  Added target="_blank" and a more robust check for the PDF. -->
                             <a href="pdfs/fractopedia.pdf" class="btn btn-outline" target="_blank"
-                                onclick="return checkFileExists(this.href);">Download Details</a>
+                                onclick="return checkFileExists(this.href);">Details</a>
                             <a href="#registration" class="btn btn-primary">Register</a>
                             <!-- Added registration button -->
                         </div>
@@ -945,7 +952,7 @@
                             matches for players of all skill levels.</p>
                         <div class="event-footer">
                             <a href="pdfs/checkmate.pdf" class="btn btn-outline" target="_blank"
-                                onclick="return checkFileExists(this.href);">Download Details</a>
+                                onclick="return checkFileExists(this.href);">Details</a>
                             <a href="#registration" class="btn btn-primary">Register</a>
                         </div>
                     </div>
@@ -963,7 +970,7 @@
                         <p>Be here by 3:00pm on 29th March. Don't be late, we start at 4:00pm sharp.</p>
                         <div class="event-footer">
                             <a href="pdfs/orbitune.pdf" class="btn btn-outline" target="_blank"
-                                onclick="return checkFileExists(this.href);">Download Details</a>
+                                onclick="return checkFileExists(this.href);">Details</a>
                             <a href="#registration" class="btn btn-primary">Register</a>
                         </div>
                     </div>
@@ -1031,10 +1038,11 @@
                         For any inquiries or questions, feel free to contact us:
                     </p>
                     <p>
-                        <strong>Email:</strong> <a href="mailto:chaos@isibang.ac.in">chaos.isibangalore@gmail.com</a>
+                        <strong>Email:</strong> <a href="mailto:chaos@isibang.ac.in">chaos@isibang.ac.in</a> (Replace
+                        with your actual email)
                     </p>
                     <p>
-                        <strong>Phone:</strong> Arkapriyo - +917029472184
+                        <strong>Phone:</strong> +91-9876543210 (Replace with your actual phone number)
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
