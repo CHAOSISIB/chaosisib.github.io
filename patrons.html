@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORBITUNE 2025 | ISI Bangalore</title>
+    <title>CHAOS 2025 | ISI Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,13 +23,13 @@
         }
 
         :root {
-    --dark-black: #000000; /* Pure black */
-    --light-black: #1a1a1a; /* Dark gray for gradient */
-    --teal: #26BEB8; /* Teal for accents */
-    --bright-teal: #3CFFE6; /* Bright teal for highlights */
-    --dark-teal: #1A8F8A; /* Dark teal for secondary accents */
-    --white: #FFFFFF; /* White for text */
-}
+            --dark-blue: #0A0A40;
+            --light-blue: #131354;
+            --teal: #26BEB8;
+            --bright-teal: #3CFFE6;
+            --dark-teal: #1A8F8A;
+            --white: #FFFFFF;
+        }
 
         html {
             scroll-behavior: smooth;
@@ -37,12 +37,55 @@
 
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(to bottom, var(--dark-black), var(--light-black));
+            background-color: var(--dark-blue);
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.03) 0%, transparent 200px),
+                radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 400px);
         }
 
+        /* Animation for background stars */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* Typography */
         h1,
@@ -73,7 +116,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(15, 15, 17, 0.95);
+            background-color: rgba(10, 10, 64, 0.95);
             padding: 15px 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
@@ -157,7 +200,6 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
-            background: linear-gradient(to bottom, var(--dark-black), var(--light-black));
         }
 
         .hero::before {
@@ -189,6 +231,31 @@
             background-position: 0 0, 15px 15px;
         }
 
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .constellation {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            z-index: -1;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .constellation.one {
+            top: 15%;
+            left: 15%;
+            transform: scale(1.5) rotate(30deg);
+        }
+
+        .constellation.two {
+            bottom: 20%;
+            right: 10%;
+            transform: scale(1.2) rotate(-15deg);
+        }
 
         .hero-content {
             position: relative;
@@ -217,6 +284,21 @@
             display: inline-block;
         }
 
+        .hero-title::after {
+            content: '';
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background-image: url("https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/chaos-logo%20(1).svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+           background-position: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -80px;
+            animation: pulse 3s infinite ease-in-out;
+        }
 
         .hero-year {
             font-size: 4rem;
@@ -271,7 +353,7 @@
 
         .btn-primary {
             background-color: var(--teal);
-            color: var(--white);
+            color: var(--dark-blue);
             box-shadow: 0 0 20px rgba(38, 190, 184, 0.4);
         }
 
@@ -284,12 +366,12 @@
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--teal);
-            color: var(--white);
+            color: var(--teal);
         }
 
         .btn-outline:hover {
             background-color: var(--teal);
-            color: var(--white);
+            color: var(--dark-blue);
         }
 
         /* About Section */
@@ -355,7 +437,7 @@
         }
 
         .about-text {
-            flex-basis: 100%;
+            flex-basis: 55%;
             padding-right: 30px;
         }
 
@@ -508,7 +590,7 @@
 
         /* Footer */
         footer {
-            background-color: #1a1a1a;
+            background-color: rgba(10, 10, 64, 0.9);
             padding: 80px 0 30px;
             position: relative;
             overflow: hidden;
@@ -661,7 +743,7 @@
                 left: 0;
                 width: 100%;
                 flex-direction: column;
-                background-color: var(--light-black);
+                background-color: rgba(10, 10, 64, 0.95);
                 padding: 20px 0;
                 clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
                 transition: all 0.4s ease-out;
@@ -746,15 +828,15 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#" class="logo-nav">ORBITUNE</a>
+            <a href="#" class="logo-nav">CHAOS</a>
             <div class="mobile-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
-                <li><a href="#rules">RULES</a></li>
-                <li><a href="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/static/orbitune.pdf">Poster</a></li>
-                <li><a href="https://konfhub.com/checkout/chaos2025?ticketId=33962">Register</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="../#about">About</a></li>
+                <li><a href="../#events">Events</a></li>
+                <li><a href="https://konfhub.com/chaos2025">Register</a></li>
+                <li><a href="../#contact">Contact</a></li>
                 <li><a href="/patrons.html">Patrons</a></li>
             </ul>
         </div>
@@ -794,106 +876,58 @@
 
         <div class="container">
             <div class="hero-content">
-                <h3 class="hero-subtitle">CHAOS 2025, presents </h3>
-                <h1 class="hero-title">ORBITUNE</h1>
+                <h3 class="hero-subtitle">CHAOS 2025, made possible by </h3>
+                <h1 class="hero-title">PATRONS</h1>
                 <div class="hero-year">2025</div>
-                <p class="hero-description">The students of ISI Bangalore present to you the most anticipated
-                    inter-college cultural fest, CHAOS 2k25. Free up your schedules and mark the dates -- 29th March and
-                    30th March it is.</p>
-                <div class="cta-buttons">
-
-                    <a href="https://konfhub.com/checkout/chaos2025?ticketId=33962" target="_blank" class="btn btn-outline">Register Now</a>
-                </div>
+                <p class="hero-description">Meet the people who are making CHAOS 2k25 possible</p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about" id="patrons">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Rules</h2>
-                <p class="section-subtitle">The annual fest of ISI Bangalore brought to you all by the students and
-                    research scholars. This is where fun, grooves, laughs, and skills come together to make a memorable
-                    weekend. Come and enjoy your weekend and participate in our inter-college competitions to get
-                    exciting cash prizes and other goodies.</p>
-            </div>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <p>CHAOS 2025 is the inter-collegiate cultural festival organized by the Indian Statistical
-                        Institute, Bangalore Centre. It brings together the perfect blend of culture and intellect to
-                        cater to every set of diverse palette. </p>
-                    <p>We aim to not let you rest at all and believe me you will enjoy that, as it's time to get
-                        chaotic, as CHAOS is finally back for 2k25 after a 5-year long hiatus.</p>
-                    <p>From challenging quizzes to strategic chess tournaments and electrifying face-off between bands,
-                        CHAOS
-                        2k25 encompasses all you could ask for and more. A platform for students to showcase their
-                        talents and forge meaningful connections.
-                    <p>
-                </div>
-
+                <h2 class="section-title">Meet the people</h2>
+                <p class="section-subtitle">The Alumni of Indian Statistical Institute, Bangalore Centre who have financially contributed for the organization of CHAOS 2k25</p>
             </div>
         </div>
-    </section>
-
-
-
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Contact The Team</h2>
-                <p class="section-subtitle">Get in touch with the ORBITUNE team</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Reach Out</h3>
-                    <p>
-                        For any inquiries or questions, feel free to contact us:
-                    </p>
-                    <p>
-                        <strong>Email:</strong> <a href="chaos.isibangalore@gmail.com" ,
-                            style="color:#26BEB8;">chaos.isibangalore@gmail.com</a>
-                    </p>
-                    <p>
-                        <strong>Phone</strong>
-                    <ul style="padding-left: 20px;">
-                        <li>+91-9832820536 (Hrishik Koley)</li>
-                        <li>+91-7679475993 (Aritrabha Majumdar)</li>
-                    </ul>
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <!-- Add more social links as needed -->
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Send us a Message</h3>
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="contact-name">Name:</label>
-                            <input type="text" id="contact-name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">Email:</label>
-                            <input type="email" id="contact-email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-message">Message:</label>
-                            <textarea id="contact-message" name="message" rows="5" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="container about-content">
+            <ul class="about-text">
+                <li>Shikha Talwar - MS(QMS) '18</li>
+                <li>Soumalya Bannerjee - MS(QMS) '18</li>
+                <li>Aditya De Saha - MS(QMS) '19</li>
+                <li>Subhankar Khatua - MS(QMS) '19</li>
+                <li>Suvadip Sana - M.Math '21</li>
+                <li>Akash Dey - MS(QMS) '22</li>
+                <li>Nidhi Shashikant Talwar - MS(QMS) '22</li>
+                <li>Prasanna Ghosh - MS(QMS) '22</li>
+                <li>Vaskar Samanta - MS(QMS) '22</li>
+                <li>Kesaboyina Kalyan Kumar - MS(QMS) '22</li>
+                <li>Archan Karmakar - MS(QMS) '23</li>
+                <li>Ayush Dogra - MS(QMS) '23</li>
+                <li>Md Salman Khan - MS(QMS) '23</li>
+                <li>Parth Shah - MS(QMS) '23</li>
+                <li>Suresh Kumar - MS(QMS) '23</li>
+                <li>Abhas Bhargava - MS(QMS) '24</li>
+                <li>Shibangi Das - MS(QMS) '24</li>
+                <li>Shouvik Mondal - MS(QMS) '24</li>
+                <li>Sandeepan Dasgupta - MS(QMS) '24</li>
+                <li>Aaratrick Basu - B.Math '24</li>
+                <li>Sampriti Soor - SSIU Ph.D '22</li>
+                <li>Athira - SSIU</li>
+                <li>Deepak Kathekulath Dileep - SMU Ph.D '23</li>
+                <li>Deepak Johnson - EAU Ph.D</li>
+                <li>Juhi Golchha - MS(QMS) '23</li>
+                <li>Kushal Bannerjee - MS(QMS) '19</li>
+                <li>Arijit Bhattacharya - MS(QMS) '20</li>
+                <li>Girish Kumar - MS(QMS) '20</li>
+                <li>Ranjeet Singh - DRTC Ph.D</li>
+                <li>Mohit Garg - MS(LIS) '15</li>
+                <li>Pravash Handal - MS(QMS) '24</li>
+                <li>Geetika Barman - SSIU Ph.D '24</li>
+                <li>Aishee Roy - MS(LIS) '24</li>
+                <li>Shibangi Das - MS(QMS) '24</li>
+            </ul>
         </div>
     </section>
 
@@ -901,7 +935,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-col">
-                <h3>About ORBITUNE</h3>
+                <h3>About CHAOS</h3>
                 <p>CHAOS is the annual inter-collegiate fest of ISI Bangalore, showcasing talent, innovation, and
                     academic excellence.</p>
             </div>
@@ -909,8 +943,9 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#rules">Rules</a></li>
-                    <li><a href="https://konfhub.com/checkout/chaos2025?ticketId=33962">Registration</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="https://konfhub.com/chaos2025">Registration</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
