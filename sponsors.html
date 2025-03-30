@@ -1,136 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAOS 2025 | ISI Bangalore</title>
+    <title>CHAOS 2025 Sponsors | ISI Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-        <style>
-            /* Reset & Base Styles */
-            *,
-            *::before,
-            *::after {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            :root {
-                --dark-blue: #0A0A40;
-                --light-blue: #131354;
-                --teal: #26BEB8;
-                --bright-teal: #3CFFE6;
-                --dark-teal: #1A8F8A;
-                --white: #FFFFFF;
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                font-family: 'Space Grotesk', sans-serif;
-                background-color: var(--dark-blue);
-                color: var(--white);
-                line-height: 1.6;
-                overflow-x: hidden;
-                background-image:
-                    radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.03) 0%, transparent 200px),
-                    radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 400px);
-            }
-            @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #0A0A40;
+            --light-blue: #131354;
+            --teal: #26BEB8;
+            --white: #FFFFFF;
         }
 
-        @keyframes pulse {
-            0% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0.3;
-            }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            margin: 0;
+            padding: 0;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .navbar {
+            background-color: rgba(10, 10, 64, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
 
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Layout */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(10, 10, 64, 0.95);
-            padding: 15px 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(38, 190, 184, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .logo-nav {
@@ -139,55 +42,33 @@
             color: var(--teal);
             text-decoration: none;
             font-weight: 700;
-            margin-left: 20px;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin-right: 20px;
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(38, 190, 184, 0.1) 0%, transparent 70%);
         }
 
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s;
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--teal);
+            margin-bottom: 50px;
             position: relative;
         }
 
-        .nav-links a::after {
+        .section-title::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
             background-color: var(--teal);
-            transition: width 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--teal);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--teal);
-        }
-        
         .sponsors-grid {
             display: flex;
             justify-content: center;
@@ -215,7 +96,14 @@
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(38, 190, 184, 0.2);
         }
-        /* Add this new style for the ISI logo container */
+
+        .sponsor-logo {
+            max-width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
         .isi-logo-container {
             width: 200px;
             height: 120px;
@@ -225,12 +113,23 @@
             margin-bottom: 20px;
         }
 
-        /* Update the existing sponsor-logo class */
-        .sponsor-logo {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .limit-logo {
+            width: 100%;
+            height: 100%;
         }
+
+        .limit-cls-1 {
+            fill: #402e2a;
+        }
+        .limit-cls-1, .limit-cls-2 {
+            stroke: #000;
+            stroke-miterlimit: 10;
+            stroke-width: 2px;
+        }
+        .limit-cls-2 {
+            fill: red;
+        }
+
         .sponsor-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
@@ -275,14 +174,24 @@
                     <p class="sponsor-desc">Official Apparel Partner bringing stylish comfort to CHAOS 2025</p>
                 </div>
 
-                <!-- ISI Bangalore Sponsor Card -->
+                <!-- ISI Bangalore Sponsor Card with LIMIT Logo -->
                 <div class="sponsor-card">
-                    <img src="https://www.isibang.ac.in/wp-content/uploads/2020/08/ISI_Logo_Dark.png"
-                         alt="ISI Bangalore"
-                         class="sponsor-logo"
-                         style="filter: brightness(0) invert(1);">
+                    <div class="isi-logo-container">
+                        <svg class="limit-logo" viewBox="0 0 502.796 261.185" xmlns="http://www.w3.org/2000/svg">
+                            <polygon class="limit-cls-1" points="2.012 233.995 1.382 234.625 2.012 235.316 26.891 260.185 475.86 260.18 500.73 235.31 501.382 234.658 500.725 234 267.724 1 236.297 1 235.017 2.279 388.151 155.465 388.161 159.39 326.631 220.92 325.983 221.569 327.944 223.53 358.064 223.53 405.177 176.417 409.101 176.417 465.386 232.702 464.083 234.006 43.907 234.006 42.601 232.7 41.95 232.049 245.498 28.501 227.167 10.17 226.506 9.509 2.012 233.995"/>
+                            <polygon class="limit-cls-1" points="252.031 37.653 253.344 36.34 257.269 40.265 270.367 53.363 271.016 54.013 252.024 73.005 251.376 73.653 233.7 55.978 252.031 37.653"/>
+                            <polygon class="limit-cls-1" points="223.223 66.451 225.839 63.834 242.867 80.862 243.512 81.507 101.506 223.513 68.759 223.513 67.463 222.217 223.223 66.451"/>
+                            <polygon class="limit-cls-1" points="127.673 213.046 278.214 62.524 278.865 61.873 347.582 130.59 348.232 131.24 255.947 223.525 223.227 223.525 221.922 222.22 303.086 141.056 295.263 133.234 204.91 223.525 172.186 223.525 170.879 222.218 278.212 114.886 270.379 107.053 153.872 223.525 119.824 223.525 118.514 222.215 127.673 213.046"/>
+                            <polygon class="limit-cls-1" points="352.815 142.377 355.446 139.747 356.096 139.097 356.745 139.747 373.771 156.773 374.426 157.428 355.437 176.418 354.795 177.059 337.114 159.378 336.471 158.735 352.815 142.377"/>
+                            <polygon class="limit-cls-1" points="308.315 186.878 327.955 167.237 328.606 166.586 331.892 169.872 346.283 184.263 346.934 184.914 308.319 223.53 274.268 223.53 272.971 222.233 308.315 186.878"/>
+                            <polygon class="limit-cls-2" points="407.786 190.813 439.201 222.228 437.902 223.526 376.38 223.526 375.08 222.226 406.492 190.814 407.14 190.166 407.786 190.813"/>
+                        </svg>
+                    </div>
                     <h3 class="sponsor-name">ISI BANGALORE</h3>
                     <p class="sponsor-desc">Premier statistical institute hosting CHAOS 2025</p>
+                    <p class="sponsor-desc" style="margin-top: 10px; font-size: 0.9rem; color: var(--teal);">
+                        Featuring LIMIT Research Group
+                    </p>
                 </div>
             </div>
         </div>
