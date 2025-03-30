@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAOS 2025 | ISI Bangalore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+        <style>
+            /* Reset & Base Styles */
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --dark-blue: #0A0A40;
+                --light-blue: #131354;
+                --teal: #26BEB8;
+                --bright-teal: #3CFFE6;
+                --dark-teal: #1A8F8A;
+                --white: #FFFFFF;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Space Grotesk', sans-serif;
+                background-color: var(--dark-blue);
+                color: var(--white);
+                line-height: 1.6;
+                overflow-x: hidden;
+                background-image:
+                    radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.03) 0%, transparent 200px),
+                    radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 400px);
+            }
+            @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 64, 0.95);
+            padding: 15px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(38, 190, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--teal);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--teal);
+        }
+        
+        .sponsors-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .sponsor-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            width: 350px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(38, 190, 184, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(38, 190, 184, 0.2);
+        }
+        /* Add this new style for the ISI logo container */
+        .isi-logo-container {
+            width: 200px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Update the existing sponsor-logo class */
+        .sponsor-logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .sponsor-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: var(--teal);
+        }
+
+        .sponsor-desc {
+            text-align: center;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: rgba(10, 10, 64, 0.9);
+            padding: 50px 0 20px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo-nav">CHAOS 2025</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="section-title">OUR SPONSORS</h1>
+            <p>Proudly partnered with industry leaders who make this event possible</p>
+
+            <div class="sponsors-grid">
+                <!-- Amul Clothing Sponsor Card -->
+                <div class="sponsor-card">
+                    <img src="https://upload.wikimedia.org/wikipedia//en/thumb/c/c2/Amul_logo.svg/1200px-Amul_logo.svg.png"
+                         alt="Amul Clothing"
+                         class="sponsor-logo">
+                    <h3 class="sponsor-name">AMUL CLOTHING</h3>
+                    <p class="sponsor-desc">Official Apparel Partner bringing stylish comfort to CHAOS 2025</p>
+                </div>
+
+                <!-- ISI Bangalore Sponsor Card -->
+                <div class="sponsor-card">
+                    <img src="https://www.isibang.ac.in/wp-content/uploads/2020/08/ISI_Logo_Dark.png"
+                         alt="ISI Bangalore"
+                         class="sponsor-logo"
+                         style="filter: brightness(0) invert(1);">
+                    <h3 class="sponsor-name">ISI BANGALORE</h3>
+                    <p class="sponsor-desc">Premier statistical institute hosting CHAOS 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="text-align: center; opacity: 0.7;">© 2025 CHAOS | Indian Statistical Institute, Bangalore</p>
+        </div>
+    </footer>
+</body>
+</html>
