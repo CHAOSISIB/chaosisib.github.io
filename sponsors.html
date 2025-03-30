@@ -1,39 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAOS 2025 Sponsors | ISI Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
     <style>
+.hero {
+    text-align: center; /* This already exists in your code */
+    padding: 180px 0 100px;
+}
         :root {
             --dark-blue: #0A0A40;
             --light-blue: #131354;
             --teal: #26BEB8;
+            --bright-teal: #3CFFE6;
+            --dark-teal: #1A8F8A;
             --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Space Grotesk', sans-serif;
             background-color: var(--dark-blue);
             color: var(--white);
-            margin: 0;
-            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.03) 0%, transparent 200px),
+                radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 400px);
         }
 
-        .navbar {
-            background-color: rgba(10, 10, 64, 0.95);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--teal);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
         }
 
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 50px;
+            height: 3px;
+            background-color: var(--teal);
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--white);
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Layout */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 64, 0.95);
+            padding: 15px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(38, 190, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
         .logo-nav {
@@ -44,29 +121,143 @@
             font-weight: 700;
         }
 
-        .hero {
-            padding: 180px 0 100px;
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(38, 190, 184, 0.1) 0%, transparent 70%);
+        .mobile-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
         }
 
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: var(--teal);
-            margin-bottom: 50px;
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
             position: relative;
         }
 
-        .section-title::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
             background-color: var(--teal);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgba(10, 10, 64, 0.95);
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.4s ease-out;
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(38, 190, 184, 0.2);
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            .hero {
+    text-align: center; /* This already exists in your code */
+    padding: 180px 0 100px;
+}
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-title::after {
+                width: 40px;
+                height: 40px;
+                right: -50px;
+            }
+
+            .hero-year {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                letter-spacing: 5px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .event-card {
+                margin-bottom: 30px;
+            }
+
+            .footer-col {
+                flex-basis: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-year {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                justify-content: center;
+                align-items: center;
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
         }
 
         .sponsors-grid {
@@ -83,7 +274,7 @@
             border-radius: 10px;
             padding: 30px;
             width: 350px;
-            height: 250px;
+            height: 350px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -105,17 +296,24 @@
         }
 
         .isi-logo-container {
-            width: 200px;
+            width: 120px;
             height: 120px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
+            background-color: white; /* White background for the container */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Some padding around the logo */
         }
 
         .limit-logo {
             width: 100%;
             height: 100%;
+        }
+
+        .limit-bg {
+            fill: white; /* White background for the SVG */
         }
 
         .limit-cls-1 {
@@ -142,19 +340,174 @@
             opacity: 0.8;
             line-height: 1.6;
         }
-
-        footer {
-            background-color: rgba(10, 10, 64, 0.9);
-            padding: 50px 0 20px;
-            margin-top: 100px;
+/* Social Media Icons */
+.social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: auto;
+            padding-top: 20px;
+            width: 100%;
         }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(38, 190, 184, 0.1);
+            border-radius: 50%;
+            color: var(--teal);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--teal);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+       /* Footer */
+       footer {
+            background-color: rgba(10, 10, 64, 0.9);
+            padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--teal), transparent);
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        .footer-col h3 {
+            color: var(--teal);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--teal);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                min-width: 250px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .member-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-link {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 768px) {
+        .sponsors-grid {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .sponsor-card {
+            width: 90%;
+            height: auto;
+            min-height: 300px;
+            padding: 20px;
+        }
+
+        .isi-logo-container {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sponsors-grid {
+            gap: 20px;
+        }
+
+        .sponsor-card {
+            width: 95%;
+            min-height: 280px;
+            padding: 15px;
+        }
+    }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo-nav">CHAOS 2025</a>
+        <div class="navbar-container container">
+            <a href="#" class="logo-nav">OUR SPONSORS</a>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">CHAOS</a></li>
+                <li><a href="https://konfhub.com/chaos2025">Register</a></li>
+                <li><a href="patrons.html">Patrons</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -162,22 +515,27 @@
     <section class="hero">
         <div class="container">
             <h1 class="section-title">OUR SPONSORS</h1>
-            <p>Proudly partnered with industry leaders who make this event possible</p>
+            <p>Heartfelt gratitude for partnering with us and making this event a grand success</p>
 
             <div class="sponsors-grid">
                 <!-- Amul Clothing Sponsor Card -->
                 <div class="sponsor-card">
-                    <img src="https://upload.wikimedia.org/wikipedia//en/thumb/c/c2/Amul_logo.svg/1200px-Amul_logo.svg.png"
+                    <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/9d4ca200741bd7819fff8110c2b933dd.png"
                          alt="Amul Clothing"
                          class="sponsor-logo">
-                    <h3 class="sponsor-name">AMUL CLOTHING</h3>
-                    <p class="sponsor-desc">Official Apparel Partner bringing stylish comfort to CHAOS 2025</p>
+                    <h3 class="sponsor-name">AMUL COMFY</h3>
+                    <p class="sponsor-desc">Official Merchandise Partner bringing stylish comfort to CHAOS 2025</p>
+                    <div class="social-links">
+                        <a href="https://amulcomfy.com"
+                            class="social-link" aria-label="Website"><i class="fas fa-globe"></i></a>
+                    </div>
                 </div>
 
                 <!-- ISI Bangalore Sponsor Card with LIMIT Logo -->
                 <div class="sponsor-card">
                     <div class="isi-logo-container">
                         <svg class="limit-logo" viewBox="0 0 502.796 261.185" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="90%" height="90%" fill="white" class="limit-bg"/> <!-- White background rectangle -->
                             <polygon class="limit-cls-1" points="2.012 233.995 1.382 234.625 2.012 235.316 26.891 260.185 475.86 260.18 500.73 235.31 501.382 234.658 500.725 234 267.724 1 236.297 1 235.017 2.279 388.151 155.465 388.161 159.39 326.631 220.92 325.983 221.569 327.944 223.53 358.064 223.53 405.177 176.417 409.101 176.417 465.386 232.702 464.083 234.006 43.907 234.006 42.601 232.7 41.95 232.049 245.498 28.501 227.167 10.17 226.506 9.509 2.012 233.995"/>
                             <polygon class="limit-cls-1" points="252.031 37.653 253.344 36.34 257.269 40.265 270.367 53.363 271.016 54.013 252.024 73.005 251.376 73.653 233.7 55.978 252.031 37.653"/>
                             <polygon class="limit-cls-1" points="223.223 66.451 225.839 63.834 242.867 80.862 243.512 81.507 101.506 223.513 68.759 223.513 67.463 222.217 223.223 66.451"/>
@@ -187,20 +545,95 @@
                             <polygon class="limit-cls-2" points="407.786 190.813 439.201 222.228 437.902 223.526 376.38 223.526 375.08 222.226 406.492 190.814 407.14 190.166 407.786 190.813"/>
                         </svg>
                     </div>
-                    <h3 class="sponsor-name">ISI BANGALORE</h3>
-                    <p class="sponsor-desc">Premier statistical institute hosting CHAOS 2025</p>
-                    <p class="sponsor-desc" style="margin-top: 10px; font-size: 0.9rem; color: var(--teal);">
-                        Featuring LIMIT Research Group
+                    <h3 class="sponsor-name">LIMIT 2024-25</h3>
+                    <p class="sponsor-desc"> An Online Mathematics Competition</p>
+                    <div class="social-links">
+                        <a href="https://www.limitisi.in/"
+                            class="social-link" aria-label="Website"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p style="text-align: center; opacity: 0.7;">© 2025 CHAOS | Indian Statistical Institute, Bangalore</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About CHAOS</h3>
+                <p>CHAOS is the annual inter-collegiate fest of ISI Bangalore, showcasing talent, innovation, and
+                    academic excellence.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="https://www.google.com/maps/place/Indian+Statistical+Institute,+Bengaluru+Centre/@12.9324536,77.5005221,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3eee2f3fd2a1:0x82c13760d7667095!8m2!3d12.9324536!4d77.503097!16s%2Fg%2F11cfxfn4j?entry=ttu&g_ep=EgoyMDI1MDMxMC4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank" style="color: #26BEB8;">Indian Statistical Institute, Bangalore</a>
+                </p>
+                <p>8th Mile, Mysore Road</p>
+                <p>RVCE Post, Bangalore - 560059</p>
+                <p>Email: <a href="mailto:chaos.isibangalore@gmail.com"
+                        style="color: #26BEB8;">chaos.isibangalore@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 CHAOS - ISI Bangalore. All rights reserved.
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navLinks = document.getElementById('nav-links');
+            const navbar = document.querySelector('.navbar');
+
+            // Mobile Menu Toggle
+            mobileToggle.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                // Toggle between hamburger and close icon
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

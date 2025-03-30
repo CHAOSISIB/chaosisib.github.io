@@ -101,6 +101,7 @@
             color: var(--teal);
             text-decoration: none;
             font-weight: 700;
+            margin-left: 20px;
         }
 
         .mobile-toggle {
@@ -113,6 +114,7 @@
         .nav-links {
             display: flex;
             list-style: none;
+            margin-right: 20px;
         }
 
         .nav-links li {
@@ -152,38 +154,92 @@
         @media (max-width: 768px) {
             .mobile-toggle {
                 display: block;
-                z-index: 1001;
             }
 
             .nav-links {
                 position: fixed;
                 top: 70px;
-                left: -100%;
+                left: 0;
                 width: 100%;
-                height: calc(100vh - 70px);
-                background-color: var(--dark-blue);
                 flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 30px;
-                transition: left 0.3s ease;
-                z-index: 999;
+                background-color: rgba(10, 10, 64, 0.95);
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.4s ease-out;
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(38, 190, 184, 0.2);
             }
 
             .nav-links.active {
-                left: 0;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             }
 
             .nav-links li {
                 margin: 15px 0;
+                text-align: center;
             }
 
-            .navbar.scrolled .nav-links {
-                top: 60px;
-                height: calc(100vh - 60px);
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-title::after {
+                width: 40px;
+                height: 40px;
+                right: -50px;
+            }
+
+            .hero-year {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                letter-spacing: 5px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .event-card {
+                margin-bottom: 30px;
+            }
+
+            .footer-col {
+                flex-basis: 100%;
             }
         }
 
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-year {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                justify-content: center;
+                align-items: center;
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+        }
         /* Team Section */
         .team {
             background-color: var(--light-blue);
