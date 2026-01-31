@@ -5,7 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAOS 2025 | ISI Bangalore</title>
+    <meta name="description" content="CHAOS 2026 — ISI Bangalore's annual techno-cultural and educational fest. Workshops, competitions, music and more.">
+    <title>CHAOS 2026 | ISI Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,12 +24,14 @@
         }
 
         :root {
-            --dark-blue: #0A0A40;
-            --light-blue: #131354;
-            --teal: #26BEB8;
-            --bright-teal: #3CFFE6;
-            --dark-teal: #1A8F8A;
-            --white: #FFFFFF;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #d4af37;
+            --accent-light: #e5c158;
+            --accent-dark: #b8941f;
+            --white: #ffffff;
+            --text-light: #e0e0e0;
+            --bg-dark: #0f3460;
         }
 
         html {
@@ -37,13 +40,13 @@
 
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--dark-blue);
-            color: var(--white);
+            background-color: var(--primary);
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
             background-image:
-                radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.03) 0%, transparent 200px),
-                radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 400px);
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 200px),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 400px);
         }
 
         /* Animation for background stars */
@@ -116,17 +119,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(10, 10, 64, 0.95);
+            background-color: rgba(26, 26, 46, 0.95);
             padding: 15px 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(38, 190, 184, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
             transition: all 0.3s ease;
         }
 
         .navbar.scrolled {
             padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
         .navbar-container {
@@ -138,10 +141,11 @@
         .logo-nav {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
-            color: var(--teal);
+            color: var(--accent);
             text-decoration: none;
             font-weight: 700;
             margin-left: 20px;
+            letter-spacing: 3px;
         }
 
         .nav-links {
@@ -155,7 +159,7 @@
         }
 
         .nav-links a {
-            color: var(--white);
+            color: var(--text-light);
             text-decoration: none;
             font-size: 0.9rem;
             letter-spacing: 1px;
@@ -171,12 +175,12 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--teal);
+            background-color: var(--accent);
             transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--teal);
+            color: var(--accent);
         }
 
         .nav-links a:hover::after {
@@ -200,6 +204,7 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
         .hero::before {
@@ -210,8 +215,8 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 50% 50%, rgba(38, 190, 184, 0.1) 0%, transparent 50%),
-                linear-gradient(to bottom, rgba(10, 10, 64, 0.9) 0%, rgba(10, 10, 64, 0.7) 100%);
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                linear-gradient(to bottom, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.7) 100%);
             z-index: -1;
         }
 
@@ -222,8 +227,8 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            opacity: 0.3;
-            background-color: var(--dark-blue);
+            opacity: 0.15;
+            background-color: var(--primary);
             background-image:
                 radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 2px),
                 radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 1px);
@@ -277,11 +282,12 @@
         .hero-title {
             font-size: 6rem;
             line-height: 1;
-            color: var(--teal);
-            text-shadow: 0 0 10px rgba(38, 190, 184, 0.5);
+            color: var(--accent);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             margin-bottom: 10px;
             position: relative;
             display: inline-block;
+            font-weight: 700;
         }
 
         .hero-title::after {
@@ -302,16 +308,19 @@
 
         .hero-year {
             font-size: 4rem;
-            color: var(--white);
+            color: var(--accent);
             margin-bottom: 30px;
-            opacity: 0.9;
+            opacity: 0.95;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto 40px;
-            opacity: 0.8;
+            opacity: 0.85;
+            line-height: 1.8;
         }
 
         .btn {
@@ -352,31 +361,32 @@
         }
 
         .btn-primary {
-            background-color: var(--teal);
-            color: var(--dark-blue);
-            box-shadow: 0 0 20px rgba(38, 190, 184, 0.4);
+            background-color: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            font-weight: 600;
         }
 
         .btn-primary:hover {
-            background-color: var(--bright-teal);
+            background-color: var(--accent-light);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(38, 190, 184, 0.6);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
         }
 
         .btn-outline {
             background-color: transparent;
-            border: 2px solid var(--teal);
-            color: var(--teal);
+            border: 2px solid var(--accent);
+            color: var(--accent);
         }
 
         .btn-outline:hover {
-            background-color: var(--teal);
-            color: var(--dark-blue);
+            background-color: var(--accent);
+            color: var(--primary);
         }
 
         /* About Section */
         .about {
-            background-color: var(--light-blue);
+            background-color: var(--secondary);
             position: relative;
         }
 
@@ -388,8 +398,8 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.05) 0%, transparent 300px),
-                radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 300px);
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.04) 0%, transparent 300px),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 300px);
             z-index: 0;
         }
 
@@ -402,7 +412,7 @@
 
         .section-title {
             font-size: 2.5rem;
-            color: var(--teal);
+            color: var(--accent);
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
@@ -415,14 +425,14 @@
             left: 50%;
             width: 50px;
             height: 3px;
-            background-color: var(--teal);
+            background-color: var(--accent);
             transform: translateX(-50%);
         }
 
         .section-subtitle {
             font-size: 1rem;
-            color: var(--white);
-            opacity: 0.7;
+            color: var(--text-light);
+            opacity: 0.8;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -475,21 +485,27 @@
         }
 
         .event-card {
-            background-color: rgba(19, 19, 84, 0.6);
+            background-color: rgba(22, 33, 62, 0.6);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(38, 190, 184, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.3s ease;
             position: relative;
             z-index: 1;
             backdrop-filter: blur(5px);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.1) 0%, transparent 50%);
         }
 
         .event-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(38, 190, 184, 0.2);
-            border-color: rgba(38, 190, 184, 0.5);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15), 0 0 30px rgba(100, 150, 200, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.2) 0%, transparent 50%);
         }
 
         .event-card::before {
@@ -499,7 +515,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(38, 190, 184, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
             z-index: -1;
         }
 
@@ -527,12 +543,19 @@
         .event-title {
             font-size: 1.8rem;
             margin-bottom: 10px;
-            color: var(--teal);
+            color: var(--accent);
+            font-weight: 700;
+            text-shadow: 
+                0 0 10px rgba(212, 175, 55, 0.6),
+                0 2px 4px rgba(100, 150, 200, 0.4),
+                -2px -2px 8px rgba(255, 255, 255, 0.3),
+                2px 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
         }
 
         .event-subtitle {
             font-size: 1rem;
-            color: var(--white);
+            color: var(--text-light);
             opacity: 0.7;
             margin-bottom: 15px;
             font-style: italic;
@@ -541,6 +564,7 @@
         .event-description {
             margin-bottom: 20px;
             line-height: 1.6;
+            color: var(--text-light);
         }
 
         .event-footer {
@@ -553,7 +577,7 @@
 
         /* Registration Section */
         .registration {
-            background-color: var(--light-blue);
+            background-color: var(--secondary);
             position: relative;
             text-align: center;
         }
@@ -565,7 +589,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(38, 190, 184, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
             z-index: 0;
         }
 
@@ -655,16 +679,16 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: rgba(38, 190, 184, 0.1);
+            background-color: rgba(212, 175, 55, 0.1);
             border-radius: 50%;
-            color: var(--teal);
+            color: var(--accent);
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            background-color: var(--teal);
-            color: var(--dark-blue);
+            background-color: var(--accent);
+            color: var(--primary);
             transform: translateY(-3px);
         }
 
@@ -677,14 +701,14 @@
         }
 
         .footer-links a {
-            color: var(--white);
+            color: var(--text-light);
             text-decoration: none;
             opacity: 0.7;
             transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--teal);
+            color: var(--accent);
             opacity: 1;
             padding-left: 5px;
         }
@@ -828,17 +852,16 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#" class="logo-nav">CHAOS</a>
-            <div class="mobile-toggle">
+            <a href="#home" class="logo-nav">CHAOS</a>
+            <div class="mobile-toggle" aria-label="Toggle navigation" role="button" tabindex="0">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="https://konfhub.com/chaos2025">Register</a></li>
+                <li><a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener">Register</a></li>
                 <li><a href="sponsors.html">Sponsors</a></li>
-                <li><a href="patrons.html">Patrons</a></li>
-                <li><a href = "developer.html">Developers</a></li>
+                <li><a href="developer.html">Developers</a></li>
             </ul>
         </div>
     </nav>
@@ -877,15 +900,13 @@
 
         <div class="container">
             <div class="hero-content">
-                <h3 class="hero-subtitle">INDIAN STATISTICAL INSTITUTE BANGALORE, presents </h3>
+                <h3 class="hero-subtitle">INDIAN STATISTICAL INSTITUTE BANGALORE</h3>
                 <h1 class="hero-title">CHAOS</h1>
-                <div class="hero-year">2025</div>
-                <p class="hero-description">The students of ISI Bangalore present to you the most anticipated
-                    inter-college cultural fest, CHAOS 2k25. Free up your schedules and mark the dates -- 29th March and
-                    30th March it is.</p>
+                <div class="hero-year">2026</div>
+                <p class="hero-description">CHAOS 2026 — the annual techno-cultural & educational fest of ISI Bangalore. Featuring ChromaWalk, SonicCollision, MindMeridian, VerbumArena, and MotionMeld. March 28–29, 2026.</p>
                 <div class="cta-buttons">
                     <a href="#events" class="btn btn-primary">Explore Events</a>
-                    <a href="https://konfhub.com/chaos2025" target="_blank" class="btn btn-outline">Register Now</a>
+                    <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-outline">Buy Tickets</a>
                 </div>
             </div>
         </div>
@@ -896,30 +917,22 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About CHAOS</h2>
-                <p class="section-subtitle">The annual fest of ISI Bangalore brought to you all by the students and
-                    research scholars. This is where fun, grooves, laughs, and skills come together to make a memorable
-                    weekend. Come and enjoy your weekend and participate in our inter-college competitions to get
-                    exciting cash prizes and other goodies.</p>
+                <p class="section-subtitle">CHAOS 2026 is ISI Bangalore's annual techno-cultural and educational fest — a convergence of technology, arts, competitions and learning.</p>
             </div>
 
             <div class="about-content">
                 <div class="about-text">
-                    <p>CHAOS 2025 is the inter-collegiate cultural festival organized by the Indian Statistical
-                        Institute, Bangalore Centre. It brings together the perfect blend of culture and intellect to
-                        cater to every set of diverse palette. </p>
-                    <p>We aim to not let you rest at all and believe me you will enjoy that, as it's time to get
-                        chaotic, as CHAOS is finally back for 2k25 after a 5-year long hiatus.</p>
-                    <p>From challenging quizzes to strategic chess tournaments and electrifying face-off between bands,
-                        CHAOS
-                        2k25 encompasses all you could ask for and more. A platform for students to showcase their
-                        talents and forge meaningful connections.
+                    <p>CHAOS 2026 brings together students across disciplines for workshops, talks, technical challenges and cultural showcases.</p>
+                    <p>Expect rigorous quizzes, strategic game-play, research talks, hands-on workshops and memorable stage performances across March 28–29, 2026.</p>
+                    <p>A platform for students to showcase their talents, collaborate with peers, and forge meaningful connections.</p>
                     <p>
                         <a href="#events" class="btn btn-outline">View Events</a>
+                    </p>
                 </div>
 
                 <div class="about-image">
                     <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/dancing.png"
-                        alt="CHAOS 2025 Event" />
+                        alt="CHAOS 2026 Event" />
                 </div>
             </div>
         </div>
@@ -929,31 +942,22 @@
     <section class="events" id="events">
         <div class="container events-container">
             <div class="section-header">
-                <h2 class="section-title">Our Events</h2>
-                <p class="section-subtitle">Compete, collaborate, and showcase your talents</p>
+                <h2 class="section-title">Featured Events</h2>
+                <p class="section-subtitle">Tech, culture, competitions and workshops — something for every learner and performer.</p>
             </div>
 
             <div class="events-grid">
                 <!-- Event 1 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/fractopedia.png"
-                            alt="Fractopedia Quiz Tournament" />
+                        <img src="https://via.placeholder.com/400x200?text=Fashion+Show" alt="ChromaWalk" />
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">Fractopedia</h3>
-                        <p class="event-subtitle">Quiz Tournament</p>
-                        <p class="event-description">Test your knowledge across diverse domains in our flagship quiz
-                            competition. From science and technology to arts and culture, Fractopedia challenges your
-                            intellect at every turn.</p>
+                        <h3 class="event-title">ChromaWalk</h3>
+                        <p class="event-subtitle">Fashion Revolution</p>
+                        <p class="event-description">Unleash your design vision on the runway. A glamorous showcase of emerging fashion talents and creative visions transforming the stage.</p>
                         <div class="event-footer">
-                            <!-- FIXED: Added target="_blank" and a more robust check for the PDF. -->
-                            <a href="fractopedia.html"
-                                class="btn btn-outline" target="_blank"
-                                onclick="return checkFileExists(this.href);">Details</a>
-                            <a href="https://konfhub.com/checkout/chaos2025?ticketId=33963" target="_blank"
-                                class="btn btn-primary">Register</a>
-                            <!-- Added registration button -->
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
@@ -961,47 +965,62 @@
                 <!-- Event 2 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/checkmate.png"
-                            alt="Checkmate Chess Tournament" />
+                        <img src="https://via.placeholder.com/400x200?text=Battle+of+Bands" alt="SonicCollision" />
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">Checkmate</h3>
-                        <p class="event-subtitle">Chess Tournament</p>
-                        <p class="event-description"> Checkmate is here! Get ready for an electrifying rapid chess fight at ISI Bangalore. Quick moves, intense rivalry, and the ultimate challenge of technique—are you prepared to take over the board? Don't miss it! </p>
+                        <h3 class="event-title">SonicCollision</h3>
+                        <p class="event-subtitle">Musical Mayhem</p>
+                        <p class="event-description">Where rhythm meets rebellion. Bands collide in an electrifying battle of sound, energy, and raw musical talent.</p>
                         <div class="event-footer">
-                            <a href="checkmate.html"
-                                class="btn btn-outline" target="_blank"
-                                onclick="return checkFileExists(this.href);">Details</a>
-                            <a href="https://konfhub.com/checkout/chaos2025?ticketId=33961" target="_blank"
-                                class="btn btn-primary">Register</a>
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Event 3 -->
-                <!-- <div class="event-card">
+                <div class="event-card">
                     <div class="event-image">
-                        <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/orbitune.png"
-                            alt="Orbitune Battle of Bands" />
+                        <img src="https://via.placeholder.com/400x200?text=Chess" alt="MindMeridian" />
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">Orbitune</h3>
-                        <p class="event-subtitle">Battle of Bands</p>
-                        <p class="event-description">Unleash your musical talent in our battle of the bands. With a
-                            prize pool of 50,000, this is an opportunity like never before. Bring your teams, and make
-                            your audience groove to your wonderful music. Register at just 100 per team. But wait!! It
-                            doesn't end here. To reduce your hassle we have most of it sorted for you. Drums, Bass
-                            Guitars, Acoustic Guitars, Electric Guitars, or Keyboards -- there's no need to carry them
-                            we have it ready for you right at the stage that you will grace with your presence. Other
-                            niche instruments, guys please bring them, we don't have them ready at hand.</p>
-                        <p>Be here by 3:00pm on 29th March. Don't be late, we start at 4:00pm sharp.</p>
+                        <h3 class="event-title">MindMeridian</h3>
+                        <p class="event-subtitle">Strategic Supremacy</p>
+                        <p class="event-description">Checkmate awaits. A high-stakes battleground for strategic minds seeking to prove their tactical mastery against elite players.</p>
                         <div class="event-footer">
-                            <a href="orbitune.html" class="btn btn-outline" target="_blank" onclick="return checkFileExists(this.href);">Details</a>
-                            <a href="https://konfhub.com/checkout/chaos2025?ticketId=33962" target="_blank"
-                                class="btn btn-primary">Register</a>
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
                         </div>
                     </div>
-                </div> -->
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/400x200?text=Debate" alt="VerbumArena" />
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">VerbumArena</h3>
+                        <p class="event-subtitle">Rhetoric Revolution</p>
+                        <p class="event-description">Words become weapons. Engage in intellectual combat where eloquence, logic, and persuasion determine the victor.</p>
+                        <div class="event-footer">
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://via.placeholder.com/400x200?text=Dance+Competition" alt="MotionMeld" />
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">MotionMeld</h3>
+                        <p class="event-subtitle">Kinetic Expression</p>
+                        <p class="event-description">Movement as art. Solo, group, or freestyle — dance becomes a language of pure expression on the ultimate stage.</p>
+                        <div class="event-footer">
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1020,11 +1039,10 @@
                         For any inquiries or questions, feel free to contact us:
                     </p>
                     <p>
-                        <strong>Email:</strong> <a href="chaos.isibangalore@gmail.com" ,
-                            style="color:#26BEB8;">chaos.isibangalore@gmail.com</a>
+                        <strong>Email:</strong> <a href="mailto:chaos.isibangalore@gmail.com" style="color:var(--accent);">chaos.isibangalore@gmail.com</a>
                     </p>
                     <p>
-                        <strong>Phone</strong>
+                        <strong>Phone:</strong>
                     <ul style="padding-left: 20px;">
                         <li>+91-9832820536 (Hrishik Koley)</li>
                         <li>+91-7029472184 (Arkapriyo Hore)</li>
@@ -1037,9 +1055,8 @@
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/chaos.isibangalore/" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/chaos.isibangalore/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <!-- Add more social links as needed -->
                     </div>
                 </div>
 
@@ -1080,7 +1097,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#events">Events</a></li>
-                    <li><a href="https://konfhub.com/chaos2025">Registration</a></li>
+                    <li><a href="https://konfhub.com/chaos2026">Registration</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -1089,18 +1106,19 @@
                 <p>
                     <i class="fas fa-map-marker-alt"></i>
                     <a href="https://www.google.com/maps/place/Indian+Statistical+Institute,+Bengaluru+Centre/@12.9324536,77.5005221,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3eee2f3fd2a1:0x82c13760d7667095!8m2!3d12.9324536!4d77.503097!16s%2Fg%2F11cfxfn4j?entry=ttu&g_ep=EgoyMDI1MDMxMC4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank" style="color: #26BEB8;">Indian Statistical Institute, Bangalore</a>
+                        target="_blank" style="color: var(--accent);">Indian Statistical Institute, Bangalore</a>
                 </p>
                 <p>8th Mile, Mysore Road</p>
                 <p>RVCE Post, Bangalore - 560059</p>
                 <p>Email: <a href="mailto:chaos.isibangalore@gmail.com"
-                        style="color: #26BEB8;">chaos.isibangalore@gmail.com</a></p>
+                        style="color: var(--accent);">chaos.isibangalore@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            © 2025 CHAOS - ISI Bangalore. All rights reserved.
+            © 2026 CHAOS - ISI Bangalore. All rights reserved.
         </div>
     </footer>
+
     <!--  JavaScript for Navbar Toggle and Scroll -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1109,9 +1127,11 @@
             const navbar = document.querySelector('.navbar');
 
             // Mobile Menu Toggle
-            mobileToggle.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-            });
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('active');
+                });
+            }
 
             // Navbar Scroll Effect
             window.addEventListener('scroll', function () {
@@ -1131,28 +1151,45 @@
                 });
             });
 
-            // Function to prevent default if PDF doesn't exist
-            function checkFileExists(url) {
-                var http = new XMLHttpRequest();
-                http.open('HEAD', url, false);
-                http.send();
-                if (http.status === 404) {
-                    alert("Details for this event will be uploaded soon!"); // Or any other error handling
-                    return false; // Prevent link from opening
+            // Async file-exists check for event details links
+            async function checkFileExistsAsync(url) {
+                try {
+                    const resp = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+                    return resp.ok;
+                } catch (e) {
+                    return false;
                 }
-                return true; // Allow link to open
             }
 
-            // Smooth scrolling for anchor links (optional, but good UX)
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+            document.querySelectorAll('a.event-details').forEach(a => {
+                a.addEventListener('click', async (e) => {
+                    const url = a.getAttribute('href');
+                    if (!url || url.startsWith('http') && !url.startsWith(location.origin)) {
+                        return;
+                    }
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const ok = await checkFileExistsAsync(url);
+                    if (ok) {
+                        window.open(url, a.getAttribute('target') || '_self');
+                    } else {
+                        alert('Details for this event will be published soon.');
+                    }
                 });
             });
 
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const target = this.getAttribute('href');
+                    const el = document.querySelector(target);
+                    if (el) {
+                        e.preventDefault();
+                        el.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
     </script>
 
@@ -1165,7 +1202,7 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            color: var(--white);
+            color: var(--text-light);
             font-weight: bold;
         }
 
@@ -1175,10 +1212,10 @@
         .form-group select {
             width: 100%;
             padding: 10px;
-            border: 1px solid rgba(38, 190, 184, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-light);
             font-family: 'Space Grotesk', sans-serif;
             transition: border-color 0.3s ease;
         }
@@ -1192,7 +1229,7 @@
         .form-group input[type="email"]:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: var(--teal);
+            border-color: var(--accent);
             outline: none;
         }
 

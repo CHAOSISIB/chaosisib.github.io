@@ -23,12 +23,14 @@
         }
 
         :root {
-            --dark-blue: #0A0A40;
-            --light-blue: #131354;
-            --teal: #26BEB8;
-            --bright-teal: #3CFFE6;
-            --dark-teal: #1A8F8A;
-            --white: #FFFFFF;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #d4af37;
+            --accent-light: #e5c158;
+            --accent-dark: #b8941f;
+            --white: #ffffff;
+            --text-light: #e0e0e0;
+            --bg-dark: #0f3460;
         }
 
         html {
@@ -37,13 +39,13 @@
 
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--dark-blue);
-            color: var(--white);
+            background-color: var(--primary);
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
             background-image:
-                radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.03) 0%, transparent 200px),
-                radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 400px);
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 200px),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 400px);
         }
 
         /* Typography */
@@ -54,6 +56,7 @@
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: 700;
         }
 
         /* Layout */
@@ -75,17 +78,18 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(10, 10, 64, 0.95);
+            background-color: rgba(10, 10, 64, 0.98);
             padding: 15px 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(38, 190, 184, 0.2);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(38, 190, 184, 0.3);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
         }
 
         .navbar.scrolled {
             padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-container {
@@ -98,17 +102,18 @@
         .logo-nav {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
-            color: var(--teal);
+            color: var(--accent);
             text-decoration: none;
             font-weight: 700;
             margin-left: 20px;
+            letter-spacing: 3px;
         }
 
         .mobile-toggle {
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
-            color: var(--white);
+            color: var(--accent);
         }
 
         .nav-links {
@@ -122,7 +127,7 @@
         }
 
         .nav-links a {
-            color: var(--white);
+            color: var(--text-light);
             text-decoration: none;
             font-size: 0.9rem;
             letter-spacing: 1px;
@@ -138,12 +143,12 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--teal);
+            background-color: var(--accent);
             transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--teal);
+            color: var(--accent);
         }
 
         .nav-links a:hover::after {
@@ -242,7 +247,7 @@
         }
         /* Team Section */
         .team {
-            background-color: var(--light-blue);
+            background-color: var(--secondary);
             position: relative;
         }
 
@@ -268,7 +273,7 @@
 
         .section-title {
             font-size: 2.5rem;
-            color: var(--teal);
+            color: var(--accent);
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
@@ -281,7 +286,7 @@
             left: 50%;
             width: 50px;
             height: 3px;
-            background-color: var(--teal);
+            background-color: var(--accent);
             transform: translateX(-50%);
         }
 
@@ -306,11 +311,11 @@
             min-width: 300px;
             max-width: 350px;
             text-align: center;
-            background-color: rgba(19, 19, 84, 0.6);
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.8) 0%, rgba(22, 33, 62, 0.5) 100%);
             border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(38, 190, 184, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.3s ease;
             position: relative;
             z-index: 1;
@@ -318,12 +323,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.1) 0%, transparent 50%);
         }
 
         .team-member:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(38, 190, 184, 0.2);
-            border-color: rgba(38, 190, 184, 0.5);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15), 0 0 30px rgba(100, 150, 200, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.2) 0%, transparent 50%);
         }
 
         .member-image {
@@ -332,7 +343,7 @@
             border-radius: 50%;
             margin: 0 auto 20px;
             overflow: hidden;
-            border: 3px solid var(--teal);
+            border: 3px solid var(--accent);
             box-shadow: 0 0 20px rgba(38, 190, 184, 0.3);
         }
 
@@ -349,8 +360,13 @@
 
         .member-name {
             font-size: 1.5rem;
-            color: var(--teal);
+            color: var(--accent);
             margin-bottom: 5px;
+            text-shadow: 
+                0 0 10px rgba(212, 175, 55, 0.6),
+                0 2px 4px rgba(100, 150, 200, 0.4),
+                -2px -2px 8px rgba(255, 255, 255, 0.3),
+                2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .member-role {
@@ -385,20 +401,20 @@
             height: 40px;
             background-color: rgba(38, 190, 184, 0.1);
             border-radius: 50%;
-            color: var(--teal);
+            color: var(--accent);
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            background-color: var(--teal);
+            background-color: var(--accent);
             color: var(--dark-blue);
             transform: translateY(-3px);
         }
 
         /* Footer */
         footer {
-            background-color: rgba(10, 10, 64, 0.9);
+            background: linear-gradient(135deg, rgba(10, 10, 64, 0.95) 0%, rgba(26, 143, 138, 0.1) 100%);
             padding: 80px 0 30px;
             position: relative;
             overflow: hidden;
@@ -411,7 +427,7 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(to right, transparent, var(--teal), transparent);
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
         }
 
         .footer-container {
@@ -429,11 +445,12 @@
         }
 
         .footer-col h3 {
-            color: var(--teal);
+            color: var(--bright-teal);
             font-size: 1.3rem;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
+            letter-spacing: 2px;
         }
 
         .footer-col h3::after {
@@ -441,9 +458,9 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 30px;
-            height: 2px;
-            background-color: var(--teal);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--bright-teal));
         }
 
         .footer-bottom {
@@ -503,8 +520,9 @@
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">CHAOS</a></li>
-                <li><a href="https://konfhub.com/chaos2025">Register</a></li>
-                <li><a href="patrons.html">Patrons</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="https://konfhub.com/chaos2026">Register</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
             </ul>
         </div>
     </nav>
@@ -617,12 +635,12 @@
                 <p>
                     <i class="fas fa-map-marker-alt"></i>
                     <a href="https://www.google.com/maps/place/Indian+Statistical+Institute,+Bengaluru+Centre/@12.9324536,77.5005221,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3eee2f3fd2a1:0x82c13760d7667095!8m2!3d12.9324536!4d77.503097!16s%2Fg%2F11cfxfn4j?entry=ttu&g_ep=EgoyMDI1MDMxMC4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank" style="color: #26BEB8;">Indian Statistical Institute, Bangalore</a>
+                        target="_blank" style="color: var(--accent);">Indian Statistical Institute, Bangalore</a>
                 </p>
                 <p>8th Mile, Mysore Road</p>
                 <p>RVCE Post, Bangalore - 560059</p>
                 <p>Email: <a href="mailto:chaos.isibangalore@gmail.com"
-                        style="color: #26BEB8;">chaos.isibangalore@gmail.com</a></p>
+                        style="color: var(--accent);">chaos.isibangalore@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-bottom">

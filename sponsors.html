@@ -4,23 +4,31 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAOS 2025 Sponsors | ISI Bangalore</title>
+    <title>CHAOS 2026 Sponsors | ISI Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
     <style>
-.hero {
-    text-align: center; /* This already exists in your code */
-    padding: 180px 0 100px;
-}
+        /* Root Variables - Professional Color Scheme */
         :root {
-            --dark-blue: #0A0A40;
-            --light-blue: #131354;
-            --teal: #26BEB8;
-            --bright-teal: #3CFFE6;
-            --dark-teal: #1A8F8A;
-            --white: #FFFFFF;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #d4af37;
+            --accent-light: #e5c158;
+            --accent-dark: #b8941f;
+            --white: #ffffff;
+            --text-light: #e0e0e0;
+            --bg-dark: #0f3460;
+        }
+
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -29,41 +37,15 @@
 
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--dark-blue);
-            color: var(--white);
+            background-color: var(--primary);
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
             background-image:
-                radial-gradient(circle at 20% 20%, rgba(38, 190, 184, 0.03) 0%, transparent 200px),
-                radial-gradient(circle at 80% 80%, rgba(38, 190, 184, 0.05) 0%, transparent 400px);
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 200px),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 400px);
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--teal);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 50px;
-            height: 3px;
-            background-color: var(--teal);
-            transform: translateX(-50%);
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            color: var(--white);
-            opacity: 0.7;
-            max-width: 600px;
-            margin: 0 auto;
-        }
         /* Typography */
         h1,
         h2,
@@ -72,6 +54,7 @@
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: 700;
         }
 
         /* Layout */
@@ -93,17 +76,18 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(10, 10, 64, 0.95);
+            background-color: rgba(26, 26, 46, 0.95);
             padding: 15px 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(38, 190, 184, 0.2);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
         }
 
         .navbar.scrolled {
             padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-container {
@@ -116,16 +100,17 @@
         .logo-nav {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
-            color: var(--teal);
+            color: var(--accent);
             text-decoration: none;
             font-weight: 700;
+            letter-spacing: 3px;
         }
 
         .mobile-toggle {
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
-            color: var(--white);
+            color: var(--accent);
         }
 
         .nav-links {
@@ -138,7 +123,7 @@
         }
 
         .nav-links a {
-            color: var(--white);
+            color: var(--text-light);
             text-decoration: none;
             font-size: 0.9rem;
             letter-spacing: 1px;
@@ -154,12 +139,12 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--teal);
+            background-color: var(--accent);
             transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--teal);
+            color: var(--accent);
         }
 
         .nav-links a:hover::after {
@@ -178,12 +163,12 @@
                 left: 0;
                 width: 100%;
                 flex-direction: column;
-                background-color: rgba(10, 10, 64, 0.95);
+                background-color: rgba(26, 26, 46, 0.95);
                 padding: 20px 0;
                 clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
                 transition: all 0.4s ease-out;
                 backdrop-filter: blur(10px);
-                border-bottom: 1px solid rgba(38, 190, 184, 0.2);
+                border-bottom: 1px solid rgba(212, 175, 55, 0.15);
             }
 
             .nav-links.active {
@@ -194,98 +179,81 @@
                 margin: 15px 0;
                 text-align: center;
             }
-            .hero {
-    text-align: center; /* This already exists in your code */
-    padding: 180px 0 100px;
-}
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .hero-title::after {
-                width: 40px;
-                height: 40px;
-                right: -50px;
-            }
-
-            .hero-year {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-                letter-spacing: 5px;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .event-card {
-                margin-bottom: 30px;
-            }
-
-            .footer-col {
-                flex-basis: 100%;
-            }
         }
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-year {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                justify-content: center;
-                align-items: center;
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-light), transparent);
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sponsors Grid */
         .sponsors-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 60px;
-            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            justify-items: center;
         }
 
         .sponsor-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
-            width: 350px;
-            height: 350px;
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.8) 0%, rgba(22, 33, 62, 0.5) 100%);
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: 320px;
+            height: auto;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 1px solid rgba(38, 190, 184, 0.3);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.1) 0%, transparent 50%);
         }
 
         .sponsor-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(38, 190, 184, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2), 0 0 30px rgba(100, 150, 200, 0.2);
+            border-color: rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.95) 0%, rgba(15, 52, 96, 0.3) 100%);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.2) 0%, transparent 50%);
         }
 
         .sponsor-logo {
@@ -293,60 +261,37 @@
             max-height: 120px;
             object-fit: contain;
             margin-bottom: 20px;
-        }
-
-        .isi-logo-container {
-            width: 120px;
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            background-color: white; /* White background for the container */
-            border-radius: 8px; /* Rounded corners */
-            padding: 10px; /* Some padding around the logo */
-        }
-
-        .limit-logo {
-            width: 100%;
-            height: 100%;
-        }
-
-        .limit-bg {
-            fill: white; /* White background for the SVG */
-        }
-
-        .limit-cls-1 {
-            fill: #402e2a;
-        }
-        .limit-cls-1, .limit-cls-2 {
-            stroke: #000;
-            stroke-miterlimit: 10;
-            stroke-width: 2px;
-        }
-        .limit-cls-2 {
-            fill: red;
+            filter: brightness(0.95) contrast(1.05);
         }
 
         .sponsor-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin: 15px 0;
-            color: var(--teal);
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 10px rgba(212, 175, 55, 0.6),
+                0 2px 4px rgba(100, 150, 200, 0.4),
+                -2px -2px 8px rgba(255, 255, 255, 0.3),
+                2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .sponsor-desc {
             text-align: center;
-            opacity: 0.8;
-            line-height: 1.6;
+            opacity: 0.85;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            color: var(--text-light);
         }
-/* Social Media Icons */
-.social-links {
+
+        /* Social Media Icons */
+        .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: auto;
-            padding-top: 20px;
+            margin-top: 20px;
             width: 100%;
         }
 
@@ -354,23 +299,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(38, 190, 184, 0.1);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 50%;
-            color: var(--teal);
+            color: var(--accent);
             font-size: 1.2rem;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .social-link:hover {
-            background-color: var(--teal);
-            color: var(--dark-blue);
-            transform: translateY(-3px);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--primary);
+            transform: translateY(-5px);
+            border-color: var(--accent-light);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
-       /* Footer */
-       footer {
-            background-color: rgba(10, 10, 64, 0.9);
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9) 0%, rgba(26, 26, 46, 0.9) 100%);
             padding: 80px 0 30px;
             position: relative;
             overflow: hidden;
@@ -383,7 +333,7 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(to right, transparent, var(--teal), transparent);
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
         }
 
         .footer-container {
@@ -401,11 +351,12 @@
         }
 
         .footer-col h3 {
-            color: var(--teal);
+            color: var(--accent);
             font-size: 1.3rem;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
+            letter-spacing: 2px;
         }
 
         .footer-col h3::after {
@@ -413,9 +364,25 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 30px;
-            height: 2px;
-            background-color: var(--teal);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .footer-col a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            opacity: 0.8;
         }
 
         .footer-bottom {
@@ -430,15 +397,29 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .sponsors-grid {
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
-            .team-member {
-                min-width: 250px;
+            .sponsors-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sponsor-card {
+                width: 100%;
+                max-width: 350px;
             }
 
             .section-title {
                 font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
             }
         }
 
@@ -447,9 +428,9 @@
                 font-size: 1.5rem;
             }
 
-            .member-image {
-                width: 150px;
-                height: 150px;
+            .sponsor-card {
+                padding: 20px;
+                min-height: 280px;
             }
 
             .social-links {
@@ -462,51 +443,21 @@
                 font-size: 1rem;
             }
         }
-        @media (max-width: 768px) {
-        .sponsors-grid {
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .sponsor-card {
-            width: 90%;
-            height: auto;
-            min-height: 300px;
-            padding: 20px;
-        }
-
-        .isi-logo-container {
-            width: 100px;
-            height: 100px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .sponsors-grid {
-            gap: 20px;
-        }
-
-        .sponsor-card {
-            width: 95%;
-            min-height: 280px;
-            padding: 15px;
-        }
-    }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container container">
-            <a href="#" class="logo-nav">OUR SPONSORS</a>
+            <a href="index.html" class="logo-nav">CHAOS</a>
             <div class="mobile-toggle" id="mobile-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">CHAOS</a></li>
-                <li><a href="https://konfhub.com/chaos2025">Register</a></li>
-                <li><a href="patrons.html">Patrons</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener">Register</a></li>
+                <li><a href="developer.html">Developers</a></li>
             </ul>
         </div>
     </nav>
@@ -514,45 +465,41 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 class="section-title">OUR SPONSORS</h1>
-            <p>Heartfelt gratitude for partnering with us and making this event a grand success</p>
+            <h1 class="section-title">Our Sponsors</h1>
+            <p class="section-subtitle">Heartfelt gratitude for partnering with us and making CHAOS 2026 a grand success</p>
 
             <div class="sponsors-grid">
-                <!-- Amul Clothing Sponsor Card -->
+                <!-- Sponsor Card 1 -->
                 <div class="sponsor-card">
-                    <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/9d4ca200741bd7819fff8110c2b933dd.png"
-                         alt="Amul Clothing"
-                         class="sponsor-logo">
-                    <h3 class="sponsor-name">AMUL COMFY</h3>
-                    <p class="sponsor-desc">Official Merchandise Partner bringing stylish comfort to CHAOS 2025</p>
+                    <img src="https://via.placeholder.com/200x80?text=Sponsor+1" alt="Sponsor 1" class="sponsor-logo">
+                    <h3 class="sponsor-name">Sponsor One</h3>
+                    <p class="sponsor-desc">Official Partner bringing excellence and innovation to CHAOS 2026</p>
                     <div class="social-links">
-                        <a href="https://amulcomfy.com"
-                            class="social-link" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" class="social-link" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fas fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
-                <!-- ISI Bangalore Sponsor Card with LIMIT Logo -->
+                <!-- Sponsor Card 2 -->
                 <div class="sponsor-card">
-                    <div class="isi-logo-container">
-                        <svg class="limit-logo" viewBox="0 0 502.796 261.185" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="90%" height="90%" fill="white" class="limit-bg"/> <!-- White background rectangle -->
-                            <polygon class="limit-cls-1" points="2.012 233.995 1.382 234.625 2.012 235.316 26.891 260.185 475.86 260.18 500.73 235.31 501.382 234.658 500.725 234 267.724 1 236.297 1 235.017 2.279 388.151 155.465 388.161 159.39 326.631 220.92 325.983 221.569 327.944 223.53 358.064 223.53 405.177 176.417 409.101 176.417 465.386 232.702 464.083 234.006 43.907 234.006 42.601 232.7 41.95 232.049 245.498 28.501 227.167 10.17 226.506 9.509 2.012 233.995"/>
-                            <polygon class="limit-cls-1" points="252.031 37.653 253.344 36.34 257.269 40.265 270.367 53.363 271.016 54.013 252.024 73.005 251.376 73.653 233.7 55.978 252.031 37.653"/>
-                            <polygon class="limit-cls-1" points="223.223 66.451 225.839 63.834 242.867 80.862 243.512 81.507 101.506 223.513 68.759 223.513 67.463 222.217 223.223 66.451"/>
-                            <polygon class="limit-cls-1" points="127.673 213.046 278.214 62.524 278.865 61.873 347.582 130.59 348.232 131.24 255.947 223.525 223.227 223.525 221.922 222.22 303.086 141.056 295.263 133.234 204.91 223.525 172.186 223.525 170.879 222.218 278.212 114.886 270.379 107.053 153.872 223.525 119.824 223.525 118.514 222.215 127.673 213.046"/>
-                            <polygon class="limit-cls-1" points="352.815 142.377 355.446 139.747 356.096 139.097 356.745 139.747 373.771 156.773 374.426 157.428 355.437 176.418 354.795 177.059 337.114 159.378 336.471 158.735 352.815 142.377"/>
-                            <polygon class="limit-cls-1" points="308.315 186.878 327.955 167.237 328.606 166.586 331.892 169.872 346.283 184.263 346.934 184.914 308.319 223.53 274.268 223.53 272.971 222.233 308.315 186.878"/>
-                            <polygon class="limit-cls-2" points="407.786 190.813 439.201 222.228 437.902 223.526 376.38 223.526 375.08 222.226 406.492 190.814 407.14 190.166 407.786 190.813"/>
-                        </svg>
-                    </div>
-                    <h3 class="sponsor-name">LIMIT 2024-25</h3>
-                    <p class="sponsor-desc"> An Online Mathematics Competition</p>
+                    <img src="https://via.placeholder.com/200x80?text=Sponsor+2" alt="Sponsor 2" class="sponsor-logo">
+                    <h3 class="sponsor-name">Sponsor Two</h3>
+                    <p class="sponsor-desc">Proud supporter of student creativity and innovation</p>
                     <div class="social-links">
-                        <a href="https://www.limitisi.in/"
-                            class="social-link" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" class="social-link" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fas fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                    </p>
+
+                <!-- Sponsor Card 3 -->
+                <div class="sponsor-card">
+                    <img src="https://via.placeholder.com/200x80?text=Sponsor+3" alt="Sponsor 3" class="sponsor-logo">
+                    <h3 class="sponsor-name">Sponsor Three</h3>
+                    <p class="sponsor-desc">Dedicated to fostering academic excellence and cultural growth</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fas fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -560,29 +507,32 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>About CHAOS</h3>
-                <p>CHAOS is the annual inter-collegiate fest of ISI Bangalore, showcasing talent, innovation, and
-                    academic excellence.</p>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About CHAOS</h3>
+                    <p>CHAOS is the annual inter-collegiate fest of ISI Bangalore, showcasing talent, innovation, and academic excellence through diverse events and competitions.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html#home">Home</a></p>
+                    <p><a href="index.html#about">About</a></p>
+                    <p><a href="index.html#events">Events</a></p>
+                    <p><a href="index.html#contact">Contact</a></p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Indian Statistical Institute, Bangalore</p>
+                    <p>8th Mile, Mysore Road, RVCE Post, Bangalore - 560059</p>
+                    <p>Email: <a href="mailto:chaos.isibangalore@gmail.com">chaos.isibangalore@gmail.com</a></p>
+                </div>
             </div>
-            <div class="footer-col">
-                <h3>Contact Us</h3>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps/place/Indian+Statistical+Institute,+Bengaluru+Centre/@12.9324536,77.5005221,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3eee2f3fd2a1:0x82c13760d7667095!8m2!3d12.9324536!4d77.503097!16s%2Fg%2F11cfxfn4j?entry=ttu&g_ep=EgoyMDI1MDMxMC4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank" style="color: #26BEB8;">Indian Statistical Institute, Bangalore</a>
-                </p>
-                <p>8th Mile, Mysore Road</p>
-                <p>RVCE Post, Bangalore - 560059</p>
-                <p>Email: <a href="mailto:chaos.isibangalore@gmail.com"
-                        style="color: #26BEB8;">chaos.isibangalore@gmail.com</a></p>
+            <div class="footer-bottom">
+                © 2026 CHAOS - ISI Bangalore. All rights reserved.
             </div>
-        </div>
-        <div class="footer-bottom">
-            © 2025 CHAOS - ISI Bangalore. All rights reserved.
         </div>
     </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const mobileToggle = document.getElementById('mobile-toggle');
@@ -590,18 +540,19 @@
             const navbar = document.querySelector('.navbar');
 
             // Mobile Menu Toggle
-            mobileToggle.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-                // Toggle between hamburger and close icon
-                const icon = this.querySelector('i');
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
 
             // Close mobile menu when a link is clicked
             document.querySelectorAll('.nav-links a').forEach(link => {
@@ -628,9 +579,12 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
