@@ -931,6 +931,46 @@
         }
     </style>
 </head>
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("contact-name").value.trim();
+        const email = document.getElementById("contact-email").value.trim();
+        const message = document.getElementById("contact-message").value.trim();
+        const status = document.getElementById("contact-status");
+        const button = document.getElementById("contact-submit");
+
+        if (!name || !email || !message) {
+            status.textContent = "Please fill in all fields.";
+            return;
+        }
+
+        button.disabled = true;
+        status.textContent = "Sending…";
+
+        const googleFormURL =
+            "https://docs.google.com/forms/d/e/1FAIpQLSePcI1nKwDybQ9_xVGBD_d7-h2CiOZTa7gUMc-dTcRRmxTxkA/formResponse";
+
+        const formData = new FormData();
+        formData.append("entry.1946385485", name);     // Name
+        formData.append("entry.556046566", email);    // Email
+        formData.append("entry.563722151", message);  // Message
+
+        fetch(googleFormURL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        }).then(() => {
+            status.textContent = "Message sent successfully!";
+            document.getElementById("contact-form").reset();
+            button.disabled = false;
+        }).catch(() => {
+            status.textContent = "Something went wrong. Try again later.";
+            button.disabled = false;
+        });
+    });
+</script>
 
 <body>
     <!-- Navigation -->
@@ -1307,28 +1347,32 @@
 
                 <div class="contact-form">
                     <h3>Send us a Message</h3>
-                    <form id="contact-form" action="#" method="POST">
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="contact-name">Name:</label>
                             <input type="text" id="contact-name" name="name" required>
                         </div>
+
                         <div class="form-group">
                             <label for="contact-email">Email:</label>
                             <input type="email" id="contact-email" name="email" required>
                         </div>
+
                         <div class="form-group">
                             <label for="contact-message">Message:</label>
                             <textarea id="contact-message" name="message" rows="5" required></textarea>
                         </div>
+
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" id="contact-submit">Send Message</button>
+                            <button type="submit" class="btn btn-primary" id="contact-submit">
+                                Send Message
+                            </button>
                         </div>
+
                         <div id="contact-status" aria-live="polite" style="margin-top:10px;color:var(--accent);"></div>
                     </form>
-                    </form>
                 </div>
-            </div>
-        </div>
+
     </section>
     <!-- Footer -->
     <footer>
@@ -1438,45 +1482,47 @@
                 });
             });
 
-            // Contact form submission
-            // Set `CONTACT_ENDPOINT` to your deployed worker URL if needed, otherwise it posts to '/api/contact' (recommended route binding)
-            const CONTACT_ENDPOINT = '/api/contact';
-            const contactForm = document.getElementById('contact-form');
-            const contactStatus = document.getElementById('contact-status');
-            if (contactForm) {
-                contactForm.addEventListener('submit', async (e) => {
+            // Contact form submission: submit to Google Form
+            (function () {
+                const form = document.getElementById('contact-form');
+                const status = document.getElementById('contact-status');
+                const button = document.getElementById('contact-submit');
+
+                if (!form) return;
+
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
-                    const btn = document.getElementById('contact-submit');
-                    if (btn) btn.disabled = true;
 
-                    const data = {
-                        name: document.getElementById('contact-name').value,
-                        email: document.getElementById('contact-email').value,
-                        message: document.getElementById('contact-message').value,
-                    };
+                    const name = document.getElementById('contact-name').value.trim();
+                    const email = document.getElementById('contact-email').value.trim();
+                    const message = document.getElementById('contact-message').value.trim();
 
-                    contactStatus.textContent = 'Sending message...';
-
-                    try {
-                        const resp = await fetch(CONTACT_ENDPOINT, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(data),
-                        });
-                        const json = await resp.json();
-                        if (resp.ok && json.ok) {
-                            contactStatus.textContent = 'Message sent — thank you!';
-                            contactForm.reset();
-                        } else {
-                            contactStatus.textContent = json.error || 'Failed to send message.';
-                        }
-                    } catch (err) {
-                        contactStatus.textContent = 'Network error — please try again later.';
-                    } finally {
-                        if (btn) btn.disabled = false;
+                    if (!name || !email || !message) {
+                        if (status) status.textContent = 'Please fill in all fields.';
+                        return;
                     }
+
+                    if (button) button.disabled = true;
+                    if (status) status.textContent = 'Sending…';
+
+                    const formData = new FormData();
+                    formData.append('entry.1946385485', name);     // Name
+                    formData.append('entry.556046566', email);    // Email
+                    formData.append('entry.563722151', message);  // Message
+
+                    fetch('https://docs.google.com/forms/d/e/1FAIpQLSePcI1nKwDybQ9_xVGBD_d7-h2CiOZTa7gUMc-dTcRRmxTxkA/formResponse', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: formData
+                    }).catch(() => { /* ignore network errors due to no-cors */ });
+
+                    // With `no-cors` we cannot read the response; assume success
+                    if (status) status.textContent = 'Message sent successfully!';
+                    form.reset();
+                    if (button) button.disabled = false;
                 });
-            }
+            })();
+
         });
     </script>
 
