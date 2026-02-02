@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="CHAOS 2026 â€” ISI Bangalore's annual techno-cultural and educational fest. Workshops, competitions, music and more.">
+        content="CHAOS 2026 : ISI Bangalore's annual techno-cultural and educational fest. Workshops, competitions, music and more.">
     <title>CHAOS 2026 | ISI Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -120,17 +120,43 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(26, 26, 46, 0.95);
+            background-color: rgba(1, 25, 104, 0.45);
+            /* slightly different tint */
             padding: 15px 0;
-            z-index: 1000;
+            z-index: 999;
+            /* Adjusted z-index */
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.15);
             transition: all 0.3s ease;
         }
 
+        /* decorative glow element for the navbar - controlled by .scrolled */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -6px;
+            height: 18px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            transform: translateY(6px);
+            background: radial-gradient(60% 100% at 50% 0%, rgba(212, 175, 55, 0.15), transparent 60%);
+            filter: blur(8px);
+            z-index: -1;
+        }
+
         .navbar.scrolled {
             padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 40px rgba(36, 54, 112, 0.45), 0 0 30px rgba(212, 175, 55, 0.06);
+            background: linear-gradient(90deg, rgba(24, 28, 52, 0.98), rgba(28, 34, 60, 0.98));
+        }
+
+        .navbar.scrolled::after {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 0;
         }
 
         .navbar-container {
@@ -218,7 +244,8 @@
             background-image:
                 radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
                 linear-gradient(to bottom, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.7) 100%);
-            z-index: -1;
+            z-index: -3;
+            /* sent further back so hero-bg logo sits above */
         }
 
         .hero-bg {
@@ -227,14 +254,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            opacity: 0.15;
-            background-color: var(--primary);
+            z-index: -1;
+            /* bring above the decorative ::before */
+            opacity: 0.28;
+            /* increase visibility of logo */
+            background-color: transparent;
+            /* allow svg to show clearly */
             background-image:
+                url('chaoslogo.svg'),
                 radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 2px),
                 radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 1px);
-            background-size: 50px 50px, 30px 30px;
-            background-position: 0 0, 15px 15px;
+            background-size: 45% auto, 50px 50px, 30px 30px;
+            background-position: center 12%, 0 0, 15px 15px;
+            background-repeat: no-repeat, repeat, repeat;
+            background-blend-mode: multiply;
+            /* blend logo subtly with background */
         }
 
         .star {
@@ -291,21 +325,7 @@
             font-weight: 700;
         }
 
-        .hero-title::after {
-            content: '';
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background-image: url("https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/chaoslogo.svg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: -80px;
-            animation: pulse 3s infinite ease-in-out;
-        }
+        /* Removed small inline logo next to title; logo now appears as hero background */
 
         .hero-year {
             font-size: 4rem;
@@ -776,6 +796,14 @@
             display: inline-block;
             vertical-align: middle;
             background: transparent;
+            filter: none;
+            /* New filter property */
+            -webkit-filter: none;
+            /* New webkit filter property */
+            max-height: 72px;
+            /* Ensures logo does not exceed height */
+            display: block;
+            /* Changed display to block for better alignment */
         }
 
         @media (max-width: 768px) {
@@ -816,11 +844,7 @@
                 font-size: 3rem;
             }
 
-            .hero-title::after {
-                width: 40px;
-                height: 40px;
-                right: -50px;
-            }
+            /* hero-title decorative pseudo-element removed */
 
             .hero-year {
                 font-size: 2.5rem;
@@ -912,9 +936,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#home" class="logo-nav">
-                <img src="chaoslogo.svg" class="logo-img" />
-            </a>
+            <a href="#home" class="logo-nav" aria-label="CHAOS home">CHAOS</a>
             <div class="mobile-toggle" aria-label="Toggle navigation" role="button" tabindex="0">
                 <i class="fas fa-bars"></i>
             </div>
@@ -965,9 +987,9 @@
                 <h3 class="hero-subtitle">INDIAN STATISTICAL INSTITUTE BANGALORE</h3>
                 <h1 class="hero-title">CHAOS</h1>
                 <div class="hero-year">2026</div>
-                <p class="hero-description">CHAOS 2026 â€” the annual techno-cultural & educational fest of ISI
+                <p class="hero-description">CHAOS 2026” the annual techno-cultural & educational fest of ISI
                     Bangalore.
-                    Featuring ChromaWalk, SonicCollision, MindMeridian, VerbumArena, and MotionMeld. March 28â€“29,
+                    Featuring ChromaWalk, SonicCollision, MindMeridian, VerbumArena, and MotionMeld. March 6 - 8,
                     2026.
                 </p>
                 <div class="cta-buttons">
@@ -984,8 +1006,8 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About CHAOS</h2>
-                <p class="section-subtitle">CHAOS 2026 is ISI Bangalore' s annual techno-cultural and educational fest
-                    â€” a convergence of technology, arts, competitions and learning.</p>
+                <p class="section-subtitle">CHAOS 2026 is ISI Bangalore' s annual techno-cultural and educational fest :
+                    a convergence of technology, arts, competitions and learning.</p>
             </div>
 
             <div class="about-content">
@@ -993,7 +1015,7 @@
                     <p>CHAOS 2026 brings together students across disciplines for workshops, talks, technical challenges
                         and cultural showcases.</p>
                     <p>Expect rigorous quizzes, strategic game-play, research talks, hands-on workshops and memorable
-                        stage performances across March 28â€“29, 2026.</p>
+                        stage performances across March 6 - 8, 2026.</p>
                     <p>A platform for students to showcase their talents, collaborate with peers, and forge meaningful
                         connections.</p>
                     <p>
@@ -1014,7 +1036,7 @@
         <div class="container events-container">
             <div class="section-header">
                 <h2 class="section-title">Featured Events</h2>
-                <p class="section-subtitle">Tech, culture, competitions and workshops â€” something for every learner
+                <p class="section-subtitle">Tech, culture, competitions and workshops : something for every learner
                     and
                     performer.</p>
             </div>
@@ -1023,7 +1045,42 @@
                 <!-- Event 1 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://via.placeholder.com/400x200?text=Fashion+Show" alt="ChromaWalk" />
+                        <svg role="img" aria-label="ChromaWalk image" viewBox="0 0 400 200"
+                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <linearGradient id="g-chroma" x1="0" x2="1">
+                                    <stop offset="0%" stop-color="#ff7ab6" />
+                                    <stop offset="60%" stop-color="#8e44ad" />
+                                    <stop offset="100%" stop-color="#4b2b8f" />
+                                </linearGradient>
+                                <filter id="f-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="6" result="blur" />
+                                    <feMerge>
+                                        <feMergeNode in="blur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <rect width="100%" height="100%" rx="12" fill="url(#g-chroma)" />
+                            <!-- runway -->
+                            <g transform="translate(0,30)">
+                                <polygon points="60,160 200,40 340,160" fill="rgba(255,255,255,0.06)" />
+                                <rect x="140" y="40" width="120" height="8" fill="rgba(255,255,255,0.12)"
+                                    transform="rotate(-8 200 44)" />
+                                <!-- spotlights -->
+                                <g opacity="0.14">
+                                    <ellipse cx="110" cy="50" rx="90" ry="25" fill="#fff" filter="url(#f-glow)" />
+                                    <ellipse cx="290" cy="50" rx="90" ry="25" fill="#fff" filter="url(#f-glow)" />
+                                </g>
+                                <!-- model silhouette -->
+                                <g transform="translate(185,40) scale(0.9)" fill="#fff">
+                                    <path d="M20 0 C10 30 10 60 20 80 L34 80 C44 60 44 30 34 0 Z" opacity="0.98" />
+                                    <rect x="8" y="82" width="40" height="6" rx="3" opacity="0.95" />
+                                </g>
+                            </g>
+                            <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
+                                text-anchor="middle">ChromaWalk</text>
+                        </svg>
                     </div>
                     <div class="event-content">
                         <h3 class="event-title">ChromaWalk</h3>
@@ -1040,7 +1097,41 @@
                 <!-- Event 2 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://via.placeholder.com/400x200?text=Battle+of+Bands" alt="SonicCollision" />
+                        <svg role="img" aria-label="SonicCollision image" viewBox="0 0 400 200"
+                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <linearGradient id="g-sonic" x1="0" x2="1">
+                                    <stop offset="0%" stop-color="#ff6b6b" />
+                                    <stop offset="100%" stop-color="#f94dff" />
+                                </linearGradient>
+                                <filter id="f-soft" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="4" result="b" />
+                                    <feMerge>
+                                        <feMergeNode in="b" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <rect width="100%" height="100%" rx="12" fill="url(#g-sonic)" />
+                            <!-- guitar -->
+                            <g transform="translate(60,28) scale(1)" fill="#fff" stroke="none">
+                                <ellipse cx="120" cy="90" rx="36" ry="44" fill="rgba(255,255,255,0.12)" />
+                                <path
+                                    d="M120 56 C140 56 160 76 160 96 C160 116 140 136 120 136 C100 136 80 116 80 96 C80 76 100 56 120 56 Z"
+                                    fill="#fff" opacity="0.14" />
+                                <rect x="118" y="36" width="6" height="80" rx="3" fill="#fff" opacity="0.95"
+                                    transform="rotate(-12 121 76)" />
+                                <!-- sound waves -->
+                                <path d="M20 60 Q60 40 100 60" stroke="#fff" stroke-width="3" fill="none"
+                                    opacity="0.13" />
+                                <path d="M20 78 Q60 58 100 78" stroke="#fff" stroke-width="2" fill="none"
+                                    opacity="0.08" />
+                            </g>
+                            <g transform="translate(0,0)">
+                                <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
+                                    text-anchor="middle">SonicCollision</text>
+                            </g>
+                        </svg>
                     </div>
                     <div class="event-content">
                         <h3 class="event-title">SonicCollision</h3>
@@ -1057,7 +1148,32 @@
                 <!-- Event 3 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://via.placeholder.com/400x200?text=Chess" alt="MindMeridian" />
+                        <svg role="img" aria-label="MindMeridian image" viewBox="0 0 400 200"
+                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <linearGradient id="g-mind" x1="0" x2="1">
+                                    <stop offset="0%" stop-color="#00c2ff" />
+                                    <stop offset="100%" stop-color="#0066ff" />
+                                </linearGradient>
+                                <pattern id="p-board" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <rect width="10" height="10" fill="rgba(255,255,255,0.06)" />
+                                    <rect x="10" y="10" width="10" height="10" fill="rgba(255,255,255,0.06)" />
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" rx="12" fill="url(#g-mind)" />
+                            <g transform="translate(40,30)">
+                                <rect x="14" y="20" width="160" height="160" rx="8" fill="url(#p-board)"
+                                    opacity="0.28" />
+                                <!-- knight silhouette -->
+                                <g transform="translate(90,40) scale(0.9)" fill="#fff">
+                                    <path
+                                        d="M20 12 C30 8 44 8 52 18 C58 26 54 42 46 50 C38 58 36 64 36 70 L24 74 L28 68 C24 66 18 52 20 12 Z" />
+                                    <rect x="6" y="86" width="60" height="8" rx="4" opacity="0.95" />
+                                </g>
+                            </g>
+                            <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
+                                text-anchor="middle">MindMeridian</text>
+                        </svg>
                     </div>
                     <div class="event-content">
                         <h3 class="event-title">MindMeridian</h3>
@@ -1074,7 +1190,30 @@
                 <!-- Event 4 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://via.placeholder.com/400x200?text=Debate" alt="VerbumArena" />
+                        <svg role="img" aria-label="VerbumArena image" viewBox="0 0 400 200"
+                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <linearGradient id="g-verbum" x1="0" x2="1">
+                                    <stop offset="0%" stop-color="#ffd166" />
+                                    <stop offset="100%" stop-color="#06d6a0" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="100%" height="100%" rx="12" fill="url(#g-verbum)" />
+                            <g transform="translate(30,28)" fill="#fff" opacity="0.95">
+                                <rect x="12" y="38" width="120" height="80" rx="6" fill="rgba(255,255,255,0.08)" />
+                                <path
+                                    d="M180 50 C170 40 150 36 130 44 C110 52 100 70 100 90 C100 110 110 126 130 132 C150 138 170 136 180 128"
+                                    fill="rgba(255,255,255,0.06)" />
+                                <g transform="translate(38,46)">
+                                    <path
+                                        d="M12 26 C12 18 24 12 36 12 C48 12 60 18 60 26 C60 34 48 40 36 40 C24 40 12 34 12 26 Z"
+                                        fill="#fff" />
+                                    <path d="M6 58 L66 58 L36 84 Z" fill="#fff" opacity="0.9" />
+                                </g>
+                            </g>
+                            <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
+                                text-anchor="middle">VerbumArena</text>
+                        </svg>
                     </div>
                     <div class="event-content">
                         <h3 class="event-title">VerbumArena</h3>
@@ -1091,12 +1230,44 @@
                 <!-- Event 5 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://via.placeholder.com/400x200?text=Dance+Competition" alt="MotionMeld" />
+                        <svg role="img" aria-label="MotionMeld image" viewBox="0 0 400 200"
+                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <linearGradient id="g-motion" x1="0" x2="1">
+                                    <stop offset="0%" stop-color="#ffecd2" />
+                                    <stop offset="100%" stop-color="#fcb69f" />
+                                </linearGradient>
+                                <filter id="f-trail" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="3" result="b" />
+                                    <feMerge>
+                                        <feMergeNode in="b" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <rect width="100%" height="100%" rx="12" fill="url(#g-motion)" />
+                            <g transform="translate(30,16)" fill="#fff" opacity="0.95">
+                                <!-- motion trails -->
+                                <path d="M40 110 C70 40 150 40 190 110" stroke="#fff" stroke-width="6" fill="none"
+                                    stroke-linecap="round" opacity="0.12" filter="url(#f-trail)" />
+                                <path d="M60 110 C90 50 170 50 200 110" stroke="#fff" stroke-width="6" fill="none"
+                                    stroke-linecap="round" opacity="0.08" filter="url(#f-trail)" />
+                                <!-- dancer silhouette -->
+                                <g transform="translate(90,34) scale(0.9)">
+                                    <path
+                                        d="M20 20 C30 10 44 8 54 18 C62 26 58 42 50 56 C44 66 42 76 44 86 L36 92 L30 84 C28 78 22 64 20 20 Z"
+                                        fill="#fff" />
+                                    <circle cx="56" cy="16" r="6" fill="#fff" />
+                                </g>
+                            </g>
+                            <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
+                                text-anchor="middle">MotionMeld</text>
+                        </svg>
                     </div>
                     <div class="event-content">
                         <h3 class="event-title">MotionMeld</h3>
                         <p class="event-subtitle">Kinetic Expression</p>
-                        <p class="event-description">Movement as art. Solo, group, or freestyle â€” dance becomes a
+                        <p class="event-description">Movement as art. Solo, group, or freestyle : dance becomes a
                             language of pure expression on the ultimate stage.</p>
                         <div class="event-footer">
                             <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
@@ -1136,7 +1307,7 @@
 
                 <div class="contact-form">
                     <h3>Send us a Message</h3>
-                    <form action="#" method="POST">
+                    <form id="contact-form" action="#" method="POST">
                         <div class="form-group">
                             <label for="contact-name">Name:</label>
                             <input type="text" id="contact-name" name="name" required>
@@ -1150,8 +1321,10 @@
                             <textarea id="contact-message" name="message" rows="5" required></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn btn-primary" id="contact-submit">Send Message</button>
                         </div>
+                        <div id="contact-status" aria-live="polite" style="margin-top:10px;color:var(--accent);"></div>
+                    </form>
                     </form>
                 </div>
             </div>
@@ -1189,7 +1362,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            Â© 2026 CHAOS - ISI Bangalore. All rights reserved.
+            2026 CHAOS - ISI Bangalore. All rights reserved.
         </div>
     </footer>
 
@@ -1264,6 +1437,46 @@
                     }
                 });
             });
+
+            // Contact form submission
+            // Set `CONTACT_ENDPOINT` to your deployed worker URL if needed, otherwise it posts to '/api/contact' (recommended route binding)
+            const CONTACT_ENDPOINT = '/api/contact';
+            const contactForm = document.getElementById('contact-form');
+            const contactStatus = document.getElementById('contact-status');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const btn = document.getElementById('contact-submit');
+                    if (btn) btn.disabled = true;
+
+                    const data = {
+                        name: document.getElementById('contact-name').value,
+                        email: document.getElementById('contact-email').value,
+                        message: document.getElementById('contact-message').value,
+                    };
+
+                    contactStatus.textContent = 'Sending message...';
+
+                    try {
+                        const resp = await fetch(CONTACT_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data),
+                        });
+                        const json = await resp.json();
+                        if (resp.ok && json.ok) {
+                            contactStatus.textContent = 'Message sent — thank you!';
+                            contactForm.reset();
+                        } else {
+                            contactStatus.textContent = json.error || 'Failed to send message.';
+                        }
+                    } catch (err) {
+                        contactStatus.textContent = 'Network error — please try again later.';
+                    } finally {
+                        if (btn) btn.disabled = false;
+                    }
+                });
+            }
         });
     </script>
 

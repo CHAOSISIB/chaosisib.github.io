@@ -1,0 +1,10 @@
+name = "chaos-contact-worker"
+main = "worker/index.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+# Do not commit secrets here. Set SENDGRID_API_KEY, FROM_EMAIL, TO_EMAIL in the Cloudflare dashboard or via `wrangler secret put`.
+# placeholders left intentionally blank
+# SENDGRID_API_KEY = ""
+# FROM_EMAIL = ""
+# TO_EMAIL = ""
