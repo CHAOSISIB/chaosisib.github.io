@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CHAOS 2026 — ISI Bangalore's annual techno-cultural and educational fest. Workshops, competitions, music and more.">
+    <meta name="description"
+        content="CHAOS 2026 â€” ISI Bangalore's annual techno-cultural and educational fest. Workshops, competitions, music and more.">
     <title>CHAOS 2026 | ISI Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -295,10 +296,10 @@
             display: inline-block;
             width: 60px;
             height: 60px;
-            background-image: url("https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/chaos-logo%20(1).svg");
+            background-image: url("https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/chaoslogo.svg");
             background-size: cover;
             background-repeat: no-repeat;
-           background-position: center;
+            background-position: center;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -386,7 +387,7 @@
 
         /* About Section */
         .about {
-            background-color: var(--secondary);
+            background-color: #1a1a2e;
             position: relative;
         }
 
@@ -480,6 +481,7 @@
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-auto-rows: 1fr;
             gap: 30px;
             margin-top: 50px;
         }
@@ -494,16 +496,19 @@
             position: relative;
             z-index: 1;
             backdrop-filter: blur(5px);
-            background-image: 
+            background-image:
                 radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.1) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .event-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15), 0 0 30px rgba(100, 150, 200, 0.2);
             border-color: rgba(212, 175, 55, 0.4);
-            background-image: 
+            background-image:
                 radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.25) 0%, transparent 50%),
                 radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.2) 0%, transparent 50%);
         }
@@ -538,6 +543,11 @@
 
         .event-content {
             padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1 1 auto;
         }
 
         .event-title {
@@ -545,12 +555,13 @@
             margin-bottom: 10px;
             color: var(--accent);
             font-weight: 700;
-            text-shadow: 
+            text-shadow:
                 0 0 10px rgba(212, 175, 55, 0.6),
                 0 2px 4px rgba(100, 150, 200, 0.4),
                 -2px -2px 8px rgba(255, 255, 255, 0.3),
                 2px 2px 8px rgba(0, 0, 0, 0.5);
             letter-spacing: 1px;
+            text-align: center;
         }
 
         .event-subtitle {
@@ -559,19 +570,21 @@
             opacity: 0.7;
             margin-bottom: 15px;
             font-style: italic;
+            text-align: center;
         }
 
         .event-description {
             margin-bottom: 20px;
             line-height: 1.6;
             color: var(--text-light);
+            flex: 1 1 auto;
         }
 
         .event-footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            gap: 5px;
+            gap: 12px;
             margin-top: 20px;
         }
 
@@ -614,7 +627,7 @@
 
         /* Footer */
         footer {
-            background-color: rgba(10, 10, 64, 0.9);
+            background-color: rgba(66, 66, 133, 0.95);
             padding: 80px 0 30px;
             position: relative;
             overflow: hidden;
@@ -756,6 +769,21 @@
             }
         }
 
+        /* Logo image sizing */
+        .logo-img {
+            height: 72px;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+            background: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 48px;
+            }
+        }
+
         @media (max-width: 768px) {
             .mobile-toggle {
                 display: block;
@@ -845,6 +873,38 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* Make page background uniform */
+        body {
+            background-image: none;
+            background-color: var(--primary);
+        }
+
+        .navbar {
+            background-color: var(--primary);
+            border-bottom: none;
+        }
+
+        .hero {
+            background: transparent;
+        }
+
+        .hero::before {
+            background-image: none;
+        }
+
+        .hero-bg {
+            background-image: none;
+            display: none;
+        }
+
+        footer {
+            background-color: #1d1d31;
+        }
+
+        footer::before {
+            display: none;
+        }
     </style>
 </head>
 
@@ -852,7 +912,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#home" class="logo-nav">CHAOS</a>
+            <a href="#home" class="logo-nav">
+                <img src="chaoslogo.svg" class="logo-img" />
+            </a>
             <div class="mobile-toggle" aria-label="Toggle navigation" role="button" tabindex="0">
                 <i class="fas fa-bars"></i>
             </div>
@@ -903,10 +965,15 @@
                 <h3 class="hero-subtitle">INDIAN STATISTICAL INSTITUTE BANGALORE</h3>
                 <h1 class="hero-title">CHAOS</h1>
                 <div class="hero-year">2026</div>
-                <p class="hero-description">CHAOS 2026 — the annual techno-cultural & educational fest of ISI Bangalore. Featuring ChromaWalk, SonicCollision, MindMeridian, VerbumArena, and MotionMeld. March 28–29, 2026.</p>
+                <p class="hero-description">CHAOS 2026 â€” the annual techno-cultural & educational fest of ISI
+                    Bangalore.
+                    Featuring ChromaWalk, SonicCollision, MindMeridian, VerbumArena, and MotionMeld. March 28â€“29,
+                    2026.
+                </p>
                 <div class="cta-buttons">
                     <a href="#events" class="btn btn-primary">Explore Events</a>
-                    <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-outline">Buy Tickets</a>
+                    <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-outline">Buy
+                        Tickets</a>
                 </div>
             </div>
         </div>
@@ -917,21 +984,25 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About CHAOS</h2>
-                <p class="section-subtitle">CHAOS 2026 is ISI Bangalore's annual techno-cultural and educational fest — a convergence of technology, arts, competitions and learning.</p>
+                <p class="section-subtitle">CHAOS 2026 is ISI Bangalore' s annual techno-cultural and educational fest
+                    â€” a convergence of technology, arts, competitions and learning.</p>
             </div>
 
             <div class="about-content">
                 <div class="about-text">
-                    <p>CHAOS 2026 brings together students across disciplines for workshops, talks, technical challenges and cultural showcases.</p>
-                    <p>Expect rigorous quizzes, strategic game-play, research talks, hands-on workshops and memorable stage performances across March 28–29, 2026.</p>
-                    <p>A platform for students to showcase their talents, collaborate with peers, and forge meaningful connections.</p>
+                    <p>CHAOS 2026 brings together students across disciplines for workshops, talks, technical challenges
+                        and cultural showcases.</p>
+                    <p>Expect rigorous quizzes, strategic game-play, research talks, hands-on workshops and memorable
+                        stage performances across March 28â€“29, 2026.</p>
+                    <p>A platform for students to showcase their talents, collaborate with peers, and forge meaningful
+                        connections.</p>
                     <p>
                         <a href="#events" class="btn btn-outline">View Events</a>
                     </p>
                 </div>
 
                 <div class="about-image">
-                    <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/dancing.png"
+                    <img src="https://github.com/CHAOSISIB/chaosisib.github.io/raw/main/dancing.jpg"
                         alt="CHAOS 2026 Event" />
                 </div>
             </div>
@@ -943,7 +1014,9 @@
         <div class="container events-container">
             <div class="section-header">
                 <h2 class="section-title">Featured Events</h2>
-                <p class="section-subtitle">Tech, culture, competitions and workshops — something for every learner and performer.</p>
+                <p class="section-subtitle">Tech, culture, competitions and workshops â€” something for every learner
+                    and
+                    performer.</p>
             </div>
 
             <div class="events-grid">
@@ -955,9 +1028,11 @@
                     <div class="event-content">
                         <h3 class="event-title">ChromaWalk</h3>
                         <p class="event-subtitle">Fashion Revolution</p>
-                        <p class="event-description">Unleash your design vision on the runway. A glamorous showcase of emerging fashion talents and creative visions transforming the stage.</p>
+                        <p class="event-description">Unleash your design vision on the runway. A glamorous showcase of
+                            emerging fashion talents and creative visions transforming the stage.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                                class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
@@ -970,9 +1045,11 @@
                     <div class="event-content">
                         <h3 class="event-title">SonicCollision</h3>
                         <p class="event-subtitle">Musical Mayhem</p>
-                        <p class="event-description">Where rhythm meets rebellion. Bands collide in an electrifying battle of sound, energy, and raw musical talent.</p>
+                        <p class="event-description">Where rhythm meets rebellion. Bands collide in an electrifying
+                            battle of sound, energy, and raw musical talent.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                                class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
@@ -985,9 +1062,11 @@
                     <div class="event-content">
                         <h3 class="event-title">MindMeridian</h3>
                         <p class="event-subtitle">Strategic Supremacy</p>
-                        <p class="event-description">Checkmate awaits. A high-stakes battleground for strategic minds seeking to prove their tactical mastery against elite players.</p>
+                        <p class="event-description">Checkmate awaits. A high-stakes battleground for strategic minds
+                            seeking to prove their tactical mastery against elite players.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                                class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
@@ -1000,9 +1079,11 @@
                     <div class="event-content">
                         <h3 class="event-title">VerbumArena</h3>
                         <p class="event-subtitle">Rhetoric Revolution</p>
-                        <p class="event-description">Words become weapons. Engage in intellectual combat where eloquence, logic, and persuasion determine the victor.</p>
+                        <p class="event-description">Words become weapons. Engage in intellectual combat where
+                            eloquence, logic, and persuasion determine the victor.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                                class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
@@ -1015,9 +1096,11 @@
                     <div class="event-content">
                         <h3 class="event-title">MotionMeld</h3>
                         <p class="event-subtitle">Kinetic Expression</p>
-                        <p class="event-description">Movement as art. Solo, group, or freestyle — dance becomes a language of pure expression on the ultimate stage.</p>
+                        <p class="event-description">Movement as art. Solo, group, or freestyle â€” dance becomes a
+                            language of pure expression on the ultimate stage.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener" class="btn btn-primary">Register</a>
+                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                                class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
@@ -1039,23 +1122,14 @@
                         For any inquiries or questions, feel free to contact us:
                     </p>
                     <p>
-                        <strong>Email:</strong> <a href="mailto:chaos.isibangalore@gmail.com" style="color:var(--accent);">chaos.isibangalore@gmail.com</a>
-                    </p>
-                    <p>
-                        <strong>Phone:</strong>
-                    <ul style="padding-left: 20px;">
-                        <li>+91-9832820536 (Hrishik Koley)</li>
-                        <li>+91-7029472184 (Arkapriyo Hore)</li>
-                        <li>+91-7679475993 (Aritrabha Majumdar)</li>
-                        <li>+91-9051786086 (Aayusman Mallick)</li>
-                        <li>+91-7001760682 (Daibik Barik)</li>
-                        <li>+91-9830668711 (Dhritabrata Swarnakar)</li>
-                    </ul>
+                        <strong>Email:</strong> <a href="mailto:chaos.isibangalore@gmail.com"
+                            style="color:var(--accent);">chaos.isibangalore@gmail.com</a>
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/chaos.isibangalore/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/chaos.isibangalore/" target="_blank" class="social-link"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -1115,7 +1189,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © 2026 CHAOS - ISI Bangalore. All rights reserved.
+            Â© 2026 CHAOS - ISI Bangalore. All rights reserved.
         </div>
     </footer>
 
