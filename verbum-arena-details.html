@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verbum Arena - Debate Competition at CHAOS 2026">
+    <title>Verbum Arena | CHAOS 2026 | ISI Bangalore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #d4af37;
+            --accent-light: #e5c158;
+            --accent-dark: #b8941f;
+            --white: #ffffff;
+            --text-light: #e0e0e0;
+            --bg-dark: #0f3460;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            padding: 15px 0;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-nav {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Page Header */
+        .event-header {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .event-header-content {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .event-header-title {
+            font-size: 3.5rem;
+            color: var(--accent);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .event-header-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .info-section {
+            background-color: rgba(22, 33, 62, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(5px);
+        }
+
+        .info-section h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .rules-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .rules-list li {
+            padding-left: 30px;
+            margin-bottom: 15px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .rules-list li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .prize-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .prize-card {
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .prize-card:hover {
+            background-color: rgba(212, 175, 55, 0.2);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .prize-position {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .prize-amount {
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1d1d31;
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .event-header-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .info-section {
+                padding: 25px;
+            }
+
+            .prize-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-nav">CHAOS</a>
+            <ul class="nav-links">
+                <li><a href="index.html#events">Back to Events</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Event Header -->
+    <section class="event-header">
+        <div class="container">
+            <a href="index.html#events" class="back-link">← Back to Events</a>
+            <div class="event-header-content">
+                <h1 class="event-header-title">Verbum Arena</h1>
+                <p class="event-header-subtitle">Debate Competition</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Event Overview -->
+            <section>
+                <h2 class="section-title">Overview</h2>
+                <div class="info-section">
+                    <p>Words become weapons. Engage in intellectual combat where eloquence, logic, and persuasion determine the victor. Verbum Arena is the ultimate platform for debaters to showcase their argumentative prowess and strategic thinking!</p>
+                </div>
+            </section>
+
+            <!-- Rules Section -->
+            <section>
+                <h2 class="section-title">Rules & Guidelines</h2>
+                <div class="info-section">
+                    <h3>Event Rules</h3>
+                    <ul class="rules-list">
+                        <li>Rule 1 - Add your rules here</li>
+                        <li>Rule 2 - Add your rules here</li>
+                        <li>Rule 3 - Add your rules here</li>
+                        <li>Rule 4 - Add your rules here</li>
+                        <li>Rule 5 - Add your rules here</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Prize Money Section -->
+            <section>
+                <h2 class="section-title">Prize Money</h2>
+                <div class="info-section">
+                    <h3>Prize Distribution</h3>
+                    <div class="prize-grid">
+                        <div class="prize-card">
+                            <div class="prize-position">🏆 1st Prize</div>
+                            <div class="prize-amount">₹ XX,XXX</div>
+                        </div>
+                        <div class="prize-card">
+                            <div class="prize-position">🥈 2nd Prize</div>
+                            <div class="prize-amount">₹ XX,XXX</div>
+                        </div>
+                        <div class="prize-card">
+                            <div class="prize-position">🥉 3rd Prize</div>
+                            <div class="prize-amount">₹ XX,XXX</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Updates & Information -->
+            <section>
+                <h2 class="section-title">Updates & Information</h2>
+                <div class="info-section">
+                    <h3>Latest Updates</h3>
+                    <p>Add important updates, schedule information, and additional details about the event here.</p>
+                    <p>Include information such as:</p>
+                    <ul class="rules-list">
+                        <li>Registration deadlines</li>
+                        <li>Event schedule and timing</li>
+                        <li>Venue and contact information</li>
+                        <li>Additional requirements or guidelines</li>
+                        <li>Any other important announcements</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Registration CTA -->
+            <section style="text-align: center; padding: 60px 0;">
+                <a href="https://forms.gle/U9RfoFZQvcEeemby8" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                2026 CHAOS - ISI Bangalore. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

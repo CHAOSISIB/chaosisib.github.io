@@ -983,9 +983,9 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#events">Events</a></li>
+                <li><a href="teams.html">Teams</a></li>
                 <li><a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener">Register</a></li>
                 <li><a href="sponsors.html">Sponsors</a></li>
-                <li><a href="developer.html">Developers</a></li>
             </ul>
         </div>
     </nav>
@@ -1025,7 +1025,10 @@
         <div class="container">
             <div class="hero-content">
                 <h3 class="hero-subtitle">INDIAN STATISTICAL INSTITUTE BANGALORE</h3>
-                <h1 class="hero-title">CHAOS</h1>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 10px;">
+                    <h1 class="hero-title">CHAOS</h1>
+                    <img src="chaoslogo.svg" alt="CHAOS Logo" style="height: 120px; width: auto; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));">
+                </div>
                 <div class="hero-year">2026</div>
                 <p class="hero-description">CHAOS 2026” the annual techno-cultural & educational fest of ISI
                     Bangalore.
@@ -1082,62 +1085,11 @@
             </div>
 
             <div class="events-grid">
-                <!-- Event 1 -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <svg role="img" aria-label="ChromaWalk image" viewBox="0 0 400 200"
-                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                            <defs>
-                                <linearGradient id="g-chroma" x1="0" x2="1">
-                                    <stop offset="0%" stop-color="#ff7ab6" />
-                                    <stop offset="60%" stop-color="#8e44ad" />
-                                    <stop offset="100%" stop-color="#4b2b8f" />
-                                </linearGradient>
-                                <filter id="f-glow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="6" result="blur" />
-                                    <feMerge>
-                                        <feMergeNode in="blur" />
-                                        <feMergeNode in="SourceGraphic" />
-                                    </feMerge>
-                                </filter>
-                            </defs>
-                            <rect width="100%" height="100%" rx="12" fill="url(#g-chroma)" />
-                            <!-- runway -->
-                            <g transform="translate(0,30)">
-                                <polygon points="60,160 200,40 340,160" fill="rgba(255,255,255,0.06)" />
-                                <rect x="140" y="40" width="120" height="8" fill="rgba(255,255,255,0.12)"
-                                    transform="rotate(-8 200 44)" />
-                                <!-- spotlights -->
-                                <g opacity="0.14">
-                                    <ellipse cx="110" cy="50" rx="90" ry="25" fill="#fff" filter="url(#f-glow)" />
-                                    <ellipse cx="290" cy="50" rx="90" ry="25" fill="#fff" filter="url(#f-glow)" />
-                                </g>
-                                <!-- model silhouette -->
-                                <g transform="translate(185,40) scale(0.9)" fill="#fff">
-                                    <path d="M20 0 C10 30 10 60 20 80 L34 80 C44 60 44 30 34 0 Z" opacity="0.98" />
-                                    <rect x="8" y="82" width="40" height="6" rx="3" opacity="0.95" />
-                                </g>
-                            </g>
-                            <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
-                                text-anchor="middle">ChromaWalk</text>
-                        </svg>
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">ChromaWalk</h3>
-                        <p class="event-subtitle">Fashion Revolution</p>
-                        <p class="event-description">Unleash your design vision on the runway. A glamorous showcase of
-                            emerging fashion talents and creative visions transforming the stage.</p>
-                        <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
-                                class="btn btn-primary">Register</a>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Event 2 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <svg role="img" aria-label="SonicCollision image" viewBox="0 0 400 200"
+                        <svg role="img" aria-label="Orbitune image" viewBox="0 0 400 200"
                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                             <defs>
                                 <linearGradient id="g-sonic" x1="0" x2="1">
@@ -1169,17 +1121,18 @@
                             </g>
                             <g transform="translate(0,0)">
                                 <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
-                                    text-anchor="middle">SonicCollision</text>
+                                    text-anchor="middle">Orbitune</text>
                             </g>
                         </svg>
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">SonicCollision</h3>
-                        <p class="event-subtitle">Musical Mayhem</p>
+                        <h3 class="event-title">Orbitune</h3>
+                        <p class="event-subtitle">Battle of Bands</p>
                         <p class="event-description">Where rhythm meets rebellion. Bands collide in an electrifying
                             battle of sound, energy, and raw musical talent.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                            <a href="orbitune-details.html" class="btn btn-outline">Details</a>
+                            <a href="https://forms.gle/U9RfoFZQvcEeemby8" target="_blank" rel="noopener"
                                 class="btn btn-primary">Register</a>
                         </div>
                     </div>
@@ -1188,7 +1141,7 @@
                 <!-- Event 3 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <svg role="img" aria-label="MindMeridian image" viewBox="0 0 400 200"
+                        <svg role="img" aria-label="Checkmate image" viewBox="0 0 400 200"
                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                             <defs>
                                 <linearGradient id="g-mind" x1="0" x2="1">
@@ -1212,16 +1165,17 @@
                                 </g>
                             </g>
                             <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
-                                text-anchor="middle">MindMeridian</text>
+                                text-anchor="middle">Checkmate</text>
                         </svg>
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">MindMeridian</h3>
-                        <p class="event-subtitle">Strategic Supremacy</p>
+                        <h3 class="event-title">Checkmate</h3>
+                        <p class="event-subtitle">Chess Tournament</p>
                         <p class="event-description">Checkmate awaits. A high-stakes battleground for strategic minds
                             seeking to prove their tactical mastery against elite players.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                            <a href="checkmate-details.html" class="btn btn-outline">Details</a>
+                            <a href="https://forms.gle/U9RfoFZQvcEeemby8" target="_blank" rel="noopener"
                                 class="btn btn-primary">Register</a>
                         </div>
                     </div>
@@ -1230,7 +1184,7 @@
                 <!-- Event 4 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <svg role="img" aria-label="VerbumArena image" viewBox="0 0 400 200"
+                        <svg role="img" aria-label="Verbum Arena image" viewBox="0 0 400 200"
                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                             <defs>
                                 <linearGradient id="g-verbum" x1="0" x2="1">
@@ -1252,16 +1206,17 @@
                                 </g>
                             </g>
                             <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
-                                text-anchor="middle">VerbumArena</text>
+                                text-anchor="middle">Verbum Arena</text>
                         </svg>
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">VerbumArena</h3>
-                        <p class="event-subtitle">Rhetoric Revolution</p>
+                        <h3 class="event-title">Verbum Arena</h3>
+                        <p class="event-subtitle">Debate Competition</p>
                         <p class="event-description">Words become weapons. Engage in intellectual combat where
                             eloquence, logic, and persuasion determine the victor.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                            <a href="verbum-arena-details.html" class="btn btn-outline">Details</a>
+                            <a href="https://forms.gle/U9RfoFZQvcEeemby8" target="_blank" rel="noopener"
                                 class="btn btn-primary">Register</a>
                         </div>
                     </div>
@@ -1270,7 +1225,7 @@
                 <!-- Event 5 -->
                 <div class="event-card">
                     <div class="event-image">
-                        <svg role="img" aria-label="MotionMeld image" viewBox="0 0 400 200"
+                        <svg role="img" aria-label="Motion Meld image" viewBox="0 0 400 200"
                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                             <defs>
                                 <linearGradient id="g-motion" x1="0" x2="1">
@@ -1301,16 +1256,17 @@
                                 </g>
                             </g>
                             <text x="50%" y="92%" font-family="Orbitron, sans-serif" font-size="18" fill="#fff"
-                                text-anchor="middle">MotionMeld</text>
+                                text-anchor="middle">Motion Meld</text>
                         </svg>
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">MotionMeld</h3>
-                        <p class="event-subtitle">Kinetic Expression</p>
+                        <h3 class="event-title">Motion Meld</h3>
+                        <p class="event-subtitle">Dance Competition</p>
                         <p class="event-description">Movement as art. Solo, group, or freestyle : dance becomes a
                             language of pure expression on the ultimate stage.</p>
                         <div class="event-footer">
-                            <a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener"
+                            <a href="motion-meld-details.html" class="btn btn-outline">Details</a>
+                            <a href="https://forms.gle/U9RfoFZQvcEeemby8" target="_blank" rel="noopener"
                                 class="btn btn-primary">Register</a>
                         </div>
                     </div>
@@ -1388,7 +1344,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#events">Events</a></li>
-                    <li><a href="https://konfhub.com/chaos2026">Registration</a></li>
+                    <li><a href="https://forms.gle/U9RfoFZQvcEeemby8">Registration</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>

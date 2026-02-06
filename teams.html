@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CHAOS 2026 Teams : Meet the organizing committee and core team behind ISI Bangalore's annual fest.">
+    <title>Teams | CHAOS 2026 | ISI Bangalore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #d4af37;
+            --accent-light: #e5c158;
+            --accent-dark: #b8941f;
+            --white: #ffffff;
+            --text-light: #e0e0e0;
+            --bg-dark: #0f3460;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(1, 25, 104, 0.45);
+            padding: 15px 0;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .navbar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -6px;
+            height: 18px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            transform: translateY(6px);
+            background: radial-gradient(60% 100% at 50% 0%, rgba(212, 175, 55, 0.15), transparent 60%);
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 8px 40px rgba(36, 54, 112, 0.45), 0 0 30px rgba(212, 175, 55, 0.06);
+            background: linear-gradient(90deg, rgba(24, 28, 52, 0.98), rgba(28, 34, 60, 0.98));
+        }
+
+        .navbar.scrolled::after {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 0;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 20px;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent);
+        }
+
+        /* Page Header Section */
+        .page-header {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                linear-gradient(to bottom, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .page-header-title {
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--accent);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .page-header-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Teams Section */
+        .teams-section {
+            background-color: var(--primary);
+            position: relative;
+        }
+
+        .teams-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.04) 0%, transparent 300px),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 300px);
+            z-index: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Teams Grid */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-card {
+            background-color: rgba(22, 33, 62, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(5px);
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.1) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15), 0 0 30px rgba(100, 150, 200, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(100, 150, 200, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(100, 150, 200, 0.2) 0%, transparent 50%);
+        }
+
+        .team-avatar {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(100, 150, 200, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .team-avatar i {
+            color: var(--accent);
+            opacity: 0.6;
+        }
+
+        .team-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1 1 auto;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .team-role {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .team-bio {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.7;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1d1d31;
+            padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        .footer-col h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgba(10, 10, 64, 0.95);
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.4s ease-out;
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .page-header-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .teams-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .navbar {
+            background-color: var(--primary);
+            border-bottom: none;
+        }
+
+        footer {
+            background-color: #1d1d31;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo-nav" aria-label="CHAOS home">CHAOS</a>
+            <div class="mobile-toggle" aria-label="Toggle navigation" role="button" tabindex="0">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="teams.html">Teams</a></li>
+                <li><a href="https://konfhub.com/chaos2026" target="_blank" rel="noopener">Register</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-header-title">Meet Our Team</h1>
+                <p class="page-header-subtitle">The dedicated minds behind CHAOS 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section class="teams-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Organizing Committee</h2>
+                <p class="section-subtitle">Our talented team that brings CHAOS to life</p>
+            </div>
+
+            <div class="teams-grid">
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Hrishik Koley</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Ritam Dutta</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Advait Sunder</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Varun Panthula Reddy</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Anis Kumar Sarkar</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Yuvraj Singh Rajpurohit</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Aayusman Mallick</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Sarvesh Soni</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Lokesh Korada</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Srijani</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Harsh Sharma</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Arnav Tiwari</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Gauransh Kapur</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Subhojit Maji</h3>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-content">
+                        <h3 class="team-name">Aritrabha Majumdar</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="teams.html">Teams</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>Email: chaos@isib.ac.in</p>
+                <p>Location: ISI Bangalore</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            2026 CHAOS - ISI Bangalore. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navbar = document.querySelector('.navbar');
+
+            // Mobile Menu Toggle
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function () {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
